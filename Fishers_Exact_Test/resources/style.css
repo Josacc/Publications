@@ -1,0 +1,32 @@
+
+.justify {
+  text-align: justify;
+}
+
+/*
+.center-table {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+*/
+
+table {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+td, th {
+  text-align: center;
+}
+
+.figure-caption {
+  text-align: center;
+}
+
+/*
+table.dataTable {
+  margin-left: auto;
+  margin-right: auto;
+}
+*/

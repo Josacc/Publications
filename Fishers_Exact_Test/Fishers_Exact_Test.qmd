@@ -1,0 +1,37 @@
+---
+title: "Prueba Exacta de Fisher"
+subtitle: 'sin-título'
+author: 
+  name: "Josacc"
+  email: "hello.josacc@protonmail.com"
+date: today
+bibliography: resources/referencias.bib
+csl: resources/american-medical-association.csl
+citations:
+  include: all
+nocite: |
+  @*  
+format:
+  html:
+    theme: journal
+    css: resources/style.css
+    toc: true
+    toc-location: left
+    fig-numbering: true
+    # self-contained: true
+page-layout: article
+editor: visual
+---
+
+::: {style="margin-top: -1em; margin-bottom: 1.5em;"}
+<a href="https://github.com/Josse" target="_blank" title="GitHub"> <img src="https://cdn.jsdelivr.net/npm/simple-icons@v10/icons/github.svg" alt="GitHub" style="height: 1.3em; vertical-align: middle;"/> </a>
+:::
+
+<br>
+
+#### Resumen
+
+::: {.small .justify}
+La pruba exacta de Fisher... 
+
+:::
