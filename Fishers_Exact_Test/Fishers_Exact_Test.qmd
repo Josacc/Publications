@@ -1,9 +1,9 @@
 ---
 title: "Prueba Exacta de Fisher"
-subtitle: 'sin-título'
+subtitle: 'De la teoría a la práctica'
 author: 
-  name: "Josacc"
-  email: "hello.josacc@protonmail.com"
+  name: "J"
+  email: "hello@mail.com"
 date: today
 bibliography: resources/referencias.bib
 csl: resources/american-medical-association.csl
@@ -20,18 +20,154 @@ format:
     fig-numbering: true
     # self-contained: true
 page-layout: article
-editor: visual
+editor: source
 ---
 
 ::: {style="margin-top: -1em; margin-bottom: 1.5em;"}
-<a href="https://github.com/Josse" target="_blank" title="GitHub"> <img src="https://cdn.jsdelivr.net/npm/simple-icons@v10/icons/github.svg" alt="GitHub" style="height: 1.3em; vertical-align: middle;"/> </a>
+<a href="https://github.com/Josacc/Publications/tree/main/Fishers_Exact_Test" 
+target="_blank" title="GitHub"> <img src="https://cdn.jsdelivr.net/npm/simple-icons@v10/icons/github.svg" 
+alt="GitHub" style="height: 1.3em; vertical-align: middle;"/> </a>
 :::
 
 <br>
 
-#### Resumen
+### Resumen
 
 ::: {.small .justify}
 La pruba exacta de Fisher... 
-
+  
 :::
+
+
+
+
+#### Datos
+
+::: {.justify}
+Las $N$ observaciones se resumen en una tabla de contingencia de $2 \times 2$. Los totales de fila, $r$ y $N - r$, y de columna, $c$ y $N - c$, se determinan de antemano; por lo tanto, se consideran fijos.
+:::
+
+$$
+\begin{array}{c|cc|c}
+ & \text{Columna 1} & \text{Columna 2} &  \\
+\hline
+\text{Fila 1} & x & r - x & r \\
+\text{Fila 2} & c - x & N - r - c + x & N - r \\
+\hline
+ & c & N - c & N \\
+\end{array}
+$$
+
+
+#### Supuestos de la prueba
+
+1. Cada observación es clasificada exactamente en una celda.  
+2. Los totales de fila y columna son fijos, no aleatorios.
+
+#### Estadístico de prueba
+
+::: {.justify}
+El estadístico de prueba $T$ es el número de observaciones en la celda de la fila 1 y columna 1.
+:::
+
+#### Distribución nula
+
+::: {.justify}
+La distribución exacta de $T$ bajo la hipótesis nula $H_0$ está dada por la distribución hipergeométrica:
+:::
+
+<div id="eq-hipergeometrica" class="equation">
+$$
+P(T = x) = \left\{
+\begin{array}{ll}
+\dfrac{\dbinom{r}{x} \dbinom{N - r}{c - x}}{\dbinom{N}{c}}, & \text{si } x = 0, 1, \ldots, \min(r, c) \\[8pt]
+0, & \text{en otro caso}
+\end{array}
+\right.
+\tag{1}
+$$
+</div>
+
+#### Juego de hipótesis
+Se definen los siguientes parámetros y valor observado:  
+
+- Sea $p_1$ la probabilidad de que una observación en la Fila 1 sea clasificada en la Columna 1.  
+- Sea $p_2$ la probabilidad de que una observación en la Fila 2 sea clasificada en la Columna 1.   
+- Sea $t_{obs}$ el valor observado de $T$.
+
+#### Prueba bilateral
+
+$$
+\begin{aligned}
+H_0\!: &\quad p_1 = p_2 \\
+H_1\!: &\quad p_1 \neq p_2
+\end{aligned}
+$$
+
+::: {.justify}
+Se calcula el $\text{valor }p$ utilizando la usando la Ecuación <a href="#eq-hipergeometrica" class="no-underline">(1)</a>. El $\text{valor }p$ es el doble del menor entre $P(T \leq t_{obs})$ y $P(T \geq t_{obs})$. Se rechaza $H_0$ al nivel de significancia $\alpha$ si el $\text{valor }p$ es menor o igual que $\alpha$.
+:::
+
+#### Prueba unilateral inferior
+
+$$
+\begin{aligned}
+H_0\!: &\quad p_1 \geq p_2 \\
+H_1\!: &\quad p_1 < p_2
+\end{aligned}
+$$
+
+::: {.justify}
+El $\text{valor }p$ se calcula como $P(T \leq t_{obs})$ usando la Ecuación <a href="#eq-hipergeometrica" class="no-underline">(1)</a>. Se rechaza $H_0$ a un nivel de significancia $\alpha$ si $P(T \leq t_{obs}) \leq \alpha$.
+:::
+
+#### Prueba unilateral superior
+
+$$
+\begin{aligned}
+H_0\!: &\quad p_1 \leq p_2 \\
+H_1\!: &\quad p_1 > p_2
+\end{aligned}
+$$
+
+::: {.justify}
+El $\text{valor }p$ se calcula como $P(T \geq t_{obs})$ usando la Ecuación <a href="#eq-hipergeometrica" class="no-underline">(1)</a>. Se rechaza $H_0$ a un nivel de significancia $\alpha$ si $P(T \geq t_{obs}) \leq \alpha$.
+:::
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

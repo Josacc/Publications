@@ -6,8 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Josacc">
-<meta name="dcterms.date" content="2025-10-15">
+<meta name="author" content="J">
+<meta name="dcterms.date" content="2025-10-17">
 
 <title>Prueba Exacta de Fisher</title>
 <style>
@@ -56,6 +56,35 @@ div.csl-indent {
 <link href="Fishers_Exact_Test_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="Fishers_Exact_Test_files/libs/bootstrap/bootstrap-84b3b4cc5777f6fdbd4d01919023a4cd.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="resources/style.css">
 </head>
@@ -64,7 +93,13 @@ div.csl-indent {
 
 <div id="quarto-content" class="page-columns page-rows-contents page-layout-article toc-left">
 <div id="quarto-sidebar-toc-left" class="sidebar toc-left">
-  
+  <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#resumen" id="toc-resumen" class="nav-link active" data-scroll-target="#resumen">Resumen</a></li>
+  </ul>
+</nav>
 </div>
 <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
 </div>
@@ -73,7 +108,7 @@ div.csl-indent {
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
 <h1 class="title">Prueba Exacta de Fisher</h1>
-<p class="subtitle lead">sin-título</p>
+<p class="subtitle lead">De la teoría a la práctica</p>
 </div>
 
 
@@ -83,14 +118,14 @@ div.csl-indent {
     <div>
     <div class="quarto-title-meta-heading">Author</div>
     <div class="quarto-title-meta-contents">
-             <p>Josacc <a href="mailto:hello.josacc@protonmail.com" class="quarto-title-author-email"><i class="bi bi-envelope"></i></a> </p>
+             <p>J <a href="mailto:hello@mail.com" class="quarto-title-author-email"><i class="bi bi-envelope"></i></a> </p>
           </div>
   </div>
     
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">October 15, 2025</p>
+      <p class="date">October 17, 2025</p>
     </div>
   </div>
   
@@ -103,20 +138,117 @@ div.csl-indent {
 
 
 <div style="margin-top: -1em; margin-bottom: 1.5em;">
-<p><a href="https://github.com/Josse" target="_blank" title="GitHub"> <img src="https://cdn.jsdelivr.net/npm/simple-icons@v10/icons/github.svg" alt="GitHub" style="height: 1.3em; vertical-align: middle;"> </a></p>
+<p><a href="https://github.com/Josacc/Publications/tree/main/Fishers_Exact_Test" target="_blank" title="GitHub"> <img src="https://cdn.jsdelivr.net/npm/simple-icons@v10/icons/github.svg" alt="GitHub" style="height: 1.3em; vertical-align: middle;"> </a></p>
 </div>
 <p><br></p>
-<section id="resumen" class="level4">
-<h4 class="anchored" data-anchor-id="resumen">Resumen</h4>
+<section id="resumen" class="level3">
+<h3 class="anchored" data-anchor-id="resumen">Resumen</h3>
 <div class="small justify">
-<p>La pruba exacta de Fisher… hola mundo</p>
+<p>La pruba exacta de Fisher…</p>
+</div>
+<section id="datos" class="level4">
+<h4 class="anchored" data-anchor-id="datos">Datos</h4>
+<div class="justify">
+<p>Las <span class="math inline">\(N\)</span> observaciones se resumen en una tabla de contingencia de <span class="math inline">\(2 \times 2\)</span>. Los totales de fila, <span class="math inline">\(r\)</span> y <span class="math inline">\(N - r\)</span>, y de columna, <span class="math inline">\(c\)</span> y <span class="math inline">\(N - c\)</span>, se determinan de antemano; por lo tanto, se consideran fijos.</p>
+</div>
+<p><span class="math display">\[
+\begin{array}{c|cc|c}
+&amp; \text{Columna 1} &amp; \text{Columna 2} &amp;  \\
+\hline
+\text{Fila 1} &amp; x &amp; r - x &amp; r \\
+\text{Fila 2} &amp; c - x &amp; N - r - c + x &amp; N - r \\
+\hline
+&amp; c &amp; N - c &amp; N \\
+\end{array}
+\]</span></p>
+</section>
+<section id="supuestos-de-la-prueba" class="level4">
+<h4 class="anchored" data-anchor-id="supuestos-de-la-prueba">Supuestos de la prueba</h4>
+<ol type="1">
+<li>Cada observación es clasificada exactamente en una celda.<br>
+</li>
+<li>Los totales de fila y columna son fijos, no aleatorios.</li>
+</ol>
+</section>
+<section id="estadístico-de-prueba" class="level4">
+<h4 class="anchored" data-anchor-id="estadístico-de-prueba">Estadístico de prueba</h4>
+<div class="justify">
+<p>El estadístico de prueba <span class="math inline">\(T\)</span> es el número de observaciones en la celda de la fila 1 y columna 1.</p>
+</div>
+</section>
+<section id="distribución-nula" class="level4">
+<h4 class="anchored" data-anchor-id="distribución-nula">Distribución nula</h4>
+<div class="justify">
+<p>La distribución exacta de <span class="math inline">\(T\)</span> bajo la hipótesis nula <span class="math inline">\(H_0\)</span> está dada por la distribución hipergeométrica:</p>
+</div>
+<div id="eq-hipergeometrica" class="equation">
+<p><span class="math display">\[
+P(T = x) = \left\{
+\begin{array}{ll}
+\dfrac{\dbinom{r}{x} \dbinom{N - r}{c - x}}{\dbinom{N}{c}}, &amp; \text{si } x = 0, 1, \ldots, \min(r, c) \\[8pt]
+0, &amp; \text{en otro caso}
+\end{array}
+\right.
+\tag{1}
+\]</span></p>
+</div>
+</section>
+<section id="juego-de-hipótesis" class="level4">
+<h4 class="anchored" data-anchor-id="juego-de-hipótesis">Juego de hipótesis</h4>
+<p>Se definen los siguientes parámetros y valor observado:</p>
+<ul>
+<li>Sea <span class="math inline">\(p_1\)</span> la probabilidad de que una observación en la Fila 1 sea clasificada en la Columna 1.<br>
+</li>
+<li>Sea <span class="math inline">\(p_2\)</span> la probabilidad de que una observación en la Fila 2 sea clasificada en la Columna 1.<br>
+</li>
+<li>Sea <span class="math inline">\(t_{obs}\)</span> el valor observado de <span class="math inline">\(T\)</span>.</li>
+</ul>
+</section>
+<section id="prueba-bilateral" class="level4">
+<h4 class="anchored" data-anchor-id="prueba-bilateral">Prueba bilateral</h4>
+<p><span class="math display">\[
+\begin{aligned}
+H_0\!: &amp;\quad p_1 = p_2 \\
+H_1\!: &amp;\quad p_1 \neq p_2
+\end{aligned}
+\]</span></p>
+<div class="justify">
+<p>Se calcula el <span class="math inline">\(\text{valor }p\)</span> utilizando la usando la Ecuación <a href="#eq-hipergeometrica" class="no-underline">(1)</a>. El <span class="math inline">\(\text{valor }p\)</span> es el doble del menor entre <span class="math inline">\(P(T \leq t_{obs})\)</span> y <span class="math inline">\(P(T \geq t_{obs})\)</span>. Se rechaza <span class="math inline">\(H_0\)</span> al nivel de significancia <span class="math inline">\(\alpha\)</span> si el <span class="math inline">\(\text{valor }p\)</span> es menor o igual que <span class="math inline">\(\alpha\)</span>.</p>
+</div>
+</section>
+<section id="prueba-unilateral-inferior" class="level4">
+<h4 class="anchored" data-anchor-id="prueba-unilateral-inferior">Prueba unilateral inferior</h4>
+<p><span class="math display">\[
+\begin{aligned}
+H_0\!: &amp;\quad p_1 \geq p_2 \\
+H_1\!: &amp;\quad p_1 &lt; p_2
+\end{aligned}
+\]</span></p>
+<div class="justify">
+<p>El <span class="math inline">\(\text{valor }p\)</span> se calcula como <span class="math inline">\(P(T \leq t_{obs})\)</span> usando la Ecuación <a href="#eq-hipergeometrica" class="no-underline">(1)</a>. Se rechaza <span class="math inline">\(H_0\)</span> a un nivel de significancia <span class="math inline">\(\alpha\)</span> si <span class="math inline">\(P(T \leq t_{obs}) \leq \alpha\)</span>.</p>
+</div>
+</section>
+<section id="prueba-unilateral-superior" class="level4">
+<h4 class="anchored" data-anchor-id="prueba-unilateral-superior">Prueba unilateral superior</h4>
+<p><span class="math display">\[
+\begin{aligned}
+H_0\!: &amp;\quad p_1 \leq p_2 \\
+H_1\!: &amp;\quad p_1 &gt; p_2
+\end{aligned}
+\]</span></p>
+<div class="justify">
+<p>El <span class="math inline">\(\text{valor }p\)</span> se calcula como <span class="math inline">\(P(T \geq t_{obs})\)</span> usando la Ecuación <a href="#eq-hipergeometrica" class="no-underline">(1)</a>. Se rechaza <span class="math inline">\(H_0\)</span> a un nivel de significancia <span class="math inline">\(\alpha\)</span> si <span class="math inline">\(P(T \geq t_{obs}) \leq \alpha\)</span>.</p>
 </div>
 
 </section>
+</section>
 
 <div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body" role="list">
-<div id="ref-garcia2023documento" class="csl-entry" role="listitem">
-<div class="csl-left-margin">1. </div><div class="csl-right-inline">García R, Bover J, Segura J, et al. Documento. <em>Statistic</em>. 2023;48:233-264.</div>
+<div id="ref-nowacki2017" class="csl-entry" role="listitem">
+<div class="csl-left-margin">1. </div><div class="csl-right-inline">Nowacki A. Chi‐square and fisher’s exact tests. <em>Cleveland Clinic Journal of Medicine</em>. 2017;84(9 Suppl 2):e20-e25. doi:<a href="https://doi.org/10.3949/ccjm.84.s2.04">10.3949/ccjm.84.s2.04</a></div>
+</div>
+<div id="ref-conover1999" class="csl-entry" role="listitem">
+<div class="csl-left-margin">2. </div><div class="csl-right-inline">Conover WJ. <em>Practical Nonparametric Statistics</em>. 3rd ed. Wiley; 1999.</div>
 </div>
 </div></section></div></main>
 <!-- /main column -->
