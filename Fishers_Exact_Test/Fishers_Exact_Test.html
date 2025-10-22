@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="J">
-<meta name="dcterms.date" content="2025-10-17">
+<meta name="dcterms.date" content="2025-10-21">
 
-<title>Prueba Exacta de Fisher</title>
+<title>Prueba exacta de Fisher</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -55,6 +55,26 @@ div.csl-indent {
 <script src="Fishers_Exact_Test_files/libs/bootstrap/bootstrap.min.js"></script>
 <link href="Fishers_Exact_Test_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="Fishers_Exact_Test_files/libs/bootstrap/bootstrap-84b3b4cc5777f6fdbd4d01919023a4cd.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="Fishers_Exact_Test_files/libs/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet">
+
+<script src="Fishers_Exact_Test_files/libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+
+<link href="Fishers_Exact_Test_files/libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet">
+
+<script src="Fishers_Exact_Test_files/libs/datatables-binding-0.34.0/datatables.js"></script>
+
+<script src="Fishers_Exact_Test_files/libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+
+<link href="Fishers_Exact_Test_files/libs/dt-core-1.13.6/css/jquery.dataTables.min.css" rel="stylesheet">
+
+<link href="Fishers_Exact_Test_files/libs/dt-core-1.13.6/css/jquery.dataTables.extra.css" rel="stylesheet">
+
+<script src="Fishers_Exact_Test_files/libs/dt-core-1.13.6/js/jquery.dataTables.min.js"></script>
+
+<link href="Fishers_Exact_Test_files/libs/crosstalk-1.2.2/css/crosstalk.min.css" rel="stylesheet">
+
+<script src="Fishers_Exact_Test_files/libs/crosstalk-1.2.2/js/crosstalk.min.js"></script>
+
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -97,7 +117,20 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#resumen" id="toc-resumen" class="nav-link active" data-scroll-target="#resumen">Resumen</a></li>
+  <li><a href="#reseña" id="toc-reseña" class="nav-link active" data-scroll-target="#reseña">Reseña</a></li>
+  <li><a href="#teoría" id="toc-teoría" class="nav-link" data-scroll-target="#teoría">Teoría</a>
+  <ul class="collapse">
+  <li><a href="#datos" id="toc-datos" class="nav-link" data-scroll-target="#datos">Datos</a></li>
+  <li><a href="#supuestos-de-la-prueba" id="toc-supuestos-de-la-prueba" class="nav-link" data-scroll-target="#supuestos-de-la-prueba">Supuestos de la prueba</a></li>
+  <li><a href="#estadístico-de-prueba" id="toc-estadístico-de-prueba" class="nav-link" data-scroll-target="#estadístico-de-prueba">Estadístico de prueba</a></li>
+  <li><a href="#juego-de-hipótesis" id="toc-juego-de-hipótesis" class="nav-link" data-scroll-target="#juego-de-hipótesis">Juego de hipótesis</a></li>
+  <li><a href="#observación" id="toc-observación" class="nav-link" data-scroll-target="#observación">Observación</a></li>
+  </ul></li>
+  <li><a href="#práctica" id="toc-práctica" class="nav-link" data-scroll-target="#práctica">Práctica</a>
+  <ul class="collapse">
+  <li><a href="#ejercicio-1" id="toc-ejercicio-1" class="nav-link" data-scroll-target="#ejercicio-1">Ejercicio 1</a></li>
+  <li><a href="#ejercicio-2" id="toc-ejercicio-2" class="nav-link" data-scroll-target="#ejercicio-2">Ejercicio 2</a></li>
+  </ul></li>
   </ul>
 </nav>
 </div>
@@ -107,7 +140,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Prueba Exacta de Fisher</h1>
+<h1 class="title">Prueba exacta de Fisher</h1>
 <p class="subtitle lead">De la teoría a la práctica</p>
 </div>
 
@@ -125,7 +158,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">October 17, 2025</p>
+      <p class="date">October 21, 2025</p>
     </div>
   </div>
   
@@ -141,15 +174,21 @@ window.Quarto = {
 <p><a href="https://github.com/Josacc/Publications/tree/main/Fishers_Exact_Test" target="_blank" title="GitHub"> <img src="https://cdn.jsdelivr.net/npm/simple-icons@v10/icons/github.svg" alt="GitHub" style="height: 1.3em; vertical-align: middle;"> </a></p>
 </div>
 <p><br></p>
-<section id="resumen" class="level3">
-<h3 class="anchored" data-anchor-id="resumen">Resumen</h3>
+<section id="reseña" class="level2">
+<h2 class="anchored" data-anchor-id="reseña">Reseña</h2>
 <div class="small justify">
-<p>La pruba exacta de Fisher…</p>
+<p>La prueba exacta de Fisher…</p>
 </div>
-<section id="datos" class="level4">
-<h4 class="anchored" data-anchor-id="datos">Datos</h4>
+</section>
+<section id="teoría" class="level2">
+<h2 class="anchored" data-anchor-id="teoría">Teoría</h2>
 <div class="justify">
-<p>Las <span class="math inline">\(N\)</span> observaciones se resumen en una tabla de contingencia de <span class="math inline">\(2 \times 2\)</span>. Los totales de fila, <span class="math inline">\(r\)</span> y <span class="math inline">\(N - r\)</span>, y de columna, <span class="math inline">\(c\)</span> y <span class="math inline">\(N - c\)</span>, se determinan de antemano; por lo tanto, se consideran fijos.</p>
+<p>Descripción de la teoría</p>
+</div>
+<section id="datos" class="level3">
+<h3 class="anchored" data-anchor-id="datos">Datos</h3>
+<div class="justify">
+<p>Las <span class="math inline">\(N\)</span> observaciones se resumen en una tabla de contingencia de <span class="math inline">\(2 \times 2\)</span>. Los totales de fila, <span class="math inline">\(r\)</span> y <span class="math inline">\(N - r\)</span>, y de columna, <span class="math inline">\(c\)</span> y <span class="math inline">\(N - c\)</span>, están determinados de antemano; por lo tanto, se consideran fijos.</p>
 </div>
 <p><span class="math display">\[
 \begin{array}{c|cc|c}
@@ -161,25 +200,21 @@ window.Quarto = {
 &amp; c &amp; N - c &amp; N \\
 \end{array}
 \]</span></p>
+<p><br></p>
 </section>
-<section id="supuestos-de-la-prueba" class="level4">
-<h4 class="anchored" data-anchor-id="supuestos-de-la-prueba">Supuestos de la prueba</h4>
+<section id="supuestos-de-la-prueba" class="level3">
+<h3 class="anchored" data-anchor-id="supuestos-de-la-prueba">Supuestos de la prueba</h3>
 <ol type="1">
-<li>Cada observación es clasificada exactamente en una celda.<br>
+<li>Cada observación es clasificada exactamente en una celda de la tabla de contingencia.<br>
 </li>
-<li>Los totales de fila y columna son fijos, no aleatorios.</li>
+<li>Los totales de Fila y Columna de la tabla de contingencia son fijos, no aleatorios.</li>
+<li>Las <span class="math inline">\(N\)</span> observaciones provienen de una muestra aleatoria.</li>
 </ol>
 </section>
-<section id="estadístico-de-prueba" class="level4">
-<h4 class="anchored" data-anchor-id="estadístico-de-prueba">Estadístico de prueba</h4>
+<section id="estadístico-de-prueba" class="level3">
+<h3 class="anchored" data-anchor-id="estadístico-de-prueba">Estadístico de prueba</h3>
 <div class="justify">
-<p>El estadístico de prueba <span class="math inline">\(T\)</span> es el número de observaciones en la celda de la fila 1 y columna 1.</p>
-</div>
-</section>
-<section id="distribución-nula" class="level4">
-<h4 class="anchored" data-anchor-id="distribución-nula">Distribución nula</h4>
-<div class="justify">
-<p>La distribución exacta de <span class="math inline">\(T\)</span> bajo la hipótesis nula <span class="math inline">\(H_0\)</span> está dada por la distribución hipergeométrica:</p>
+<p>Se define el estadístico de prueba <span class="math inline">\(T\)</span> como el <strong>número de observaciones en la celda de la Fila 1 y Columna 1</strong>. En consecuencia, la distribución exacta de <span class="math inline">\(T\)</span> bajo la hipótesis nula <span class="math inline">\(H_0\)</span> está dada por la distribución hipergeométrica:</p>
 </div>
 <div id="eq-hipergeometrica" class="equation">
 <p><span class="math display">\[
@@ -189,23 +224,22 @@ P(T = x) = \left\{
 0, &amp; \text{en otro caso}
 \end{array}
 \right.
-\tag{1}
+\tag{3}
 \]</span></p>
 </div>
 </section>
-<section id="juego-de-hipótesis" class="level4">
-<h4 class="anchored" data-anchor-id="juego-de-hipótesis">Juego de hipótesis</h4>
-<p>Se definen los siguientes parámetros y valor observado:</p>
+<section id="juego-de-hipótesis" class="level3">
+<h3 class="anchored" data-anchor-id="juego-de-hipótesis">Juego de hipótesis</h3>
+<p>Se definen las siguientes probabilidades y valor observado:</p>
 <ul>
 <li>Sea <span class="math inline">\(p_1\)</span> la probabilidad de que una observación en la Fila 1 sea clasificada en la Columna 1.<br>
 </li>
 <li>Sea <span class="math inline">\(p_2\)</span> la probabilidad de que una observación en la Fila 2 sea clasificada en la Columna 1.<br>
 </li>
-<li>Sea <span class="math inline">\(t_{obs}\)</span> el valor observado de <span class="math inline">\(T\)</span>.</li>
+<li>Sea <span class="math inline">\(t\)</span> el valor observado de <span class="math inline">\(T\)</span>.</li>
 </ul>
-</section>
-<section id="prueba-bilateral" class="level4">
-<h4 class="anchored" data-anchor-id="prueba-bilateral">Prueba bilateral</h4>
+<section id="prueba-bilateral" class="level5">
+<h5 class="anchored" data-anchor-id="prueba-bilateral">Prueba bilateral</h5>
 <p><span class="math display">\[
 \begin{aligned}
 H_0\!: &amp;\quad p_1 = p_2 \\
@@ -213,11 +247,11 @@ H_1\!: &amp;\quad p_1 \neq p_2
 \end{aligned}
 \]</span></p>
 <div class="justify">
-<p>Se calcula el <span class="math inline">\(\text{valor }p\)</span> utilizando la usando la Ecuación <a href="#eq-hipergeometrica" class="no-underline">(1)</a>. El <span class="math inline">\(\text{valor }p\)</span> es el doble del menor entre <span class="math inline">\(P(T \leq t_{obs})\)</span> y <span class="math inline">\(P(T \geq t_{obs})\)</span>. Se rechaza <span class="math inline">\(H_0\)</span> al nivel de significancia <span class="math inline">\(\alpha\)</span> si el <span class="math inline">\(\text{valor }p\)</span> es menor o igual que <span class="math inline">\(\alpha\)</span>.</p>
+<p>Se calcula el <span class="math inline">\(\text{valor }p\)</span> usando la Ecuación <a href="#eq-hipergeometrica" class="no-underline">(1)</a>. El <span class="math inline">\(\text{valor }p\)</span> es el doble del menor entre <span class="math inline">\(P(T \leq t)\)</span> y <span class="math inline">\(P(T \geq t)\)</span>. Se rechaza <span class="math inline">\(H_0\)</span> al nivel de significancia <span class="math inline">\(\alpha\)</span> si el <span class="math inline">\(\text{valor }p\)</span> es menor o igual que <span class="math inline">\(\alpha\)</span>.</p>
 </div>
 </section>
-<section id="prueba-unilateral-inferior" class="level4">
-<h4 class="anchored" data-anchor-id="prueba-unilateral-inferior">Prueba unilateral inferior</h4>
+<section id="prueba-unilateral-inferior" class="level5">
+<h5 class="anchored" data-anchor-id="prueba-unilateral-inferior">Prueba unilateral inferior</h5>
 <p><span class="math display">\[
 \begin{aligned}
 H_0\!: &amp;\quad p_1 \geq p_2 \\
@@ -225,11 +259,11 @@ H_1\!: &amp;\quad p_1 &lt; p_2
 \end{aligned}
 \]</span></p>
 <div class="justify">
-<p>El <span class="math inline">\(\text{valor }p\)</span> se calcula como <span class="math inline">\(P(T \leq t_{obs})\)</span> usando la Ecuación <a href="#eq-hipergeometrica" class="no-underline">(1)</a>. Se rechaza <span class="math inline">\(H_0\)</span> a un nivel de significancia <span class="math inline">\(\alpha\)</span> si <span class="math inline">\(P(T \leq t_{obs}) \leq \alpha\)</span>.</p>
+<p>El <span class="math inline">\(\text{valor }p\)</span> se calcula como <span class="math inline">\(P(T \leq t)\)</span> usando la Ecuación <a href="#eq-hipergeometrica" class="no-underline">(1)</a>. Se rechaza <span class="math inline">\(H_0\)</span> a un nivel de significancia <span class="math inline">\(\alpha\)</span> si <span class="math inline">\(P(T \leq t) \leq \alpha\)</span>.</p>
 </div>
 </section>
-<section id="prueba-unilateral-superior" class="level4">
-<h4 class="anchored" data-anchor-id="prueba-unilateral-superior">Prueba unilateral superior</h4>
+<section id="prueba-unilateral-superior" class="level5">
+<h5 class="anchored" data-anchor-id="prueba-unilateral-superior">Prueba unilateral superior</h5>
 <p><span class="math display">\[
 \begin{aligned}
 H_0\!: &amp;\quad p_1 \leq p_2 \\
@@ -237,18 +271,143 @@ H_1\!: &amp;\quad p_1 &gt; p_2
 \end{aligned}
 \]</span></p>
 <div class="justify">
-<p>El <span class="math inline">\(\text{valor }p\)</span> se calcula como <span class="math inline">\(P(T \geq t_{obs})\)</span> usando la Ecuación <a href="#eq-hipergeometrica" class="no-underline">(1)</a>. Se rechaza <span class="math inline">\(H_0\)</span> a un nivel de significancia <span class="math inline">\(\alpha\)</span> si <span class="math inline">\(P(T \geq t_{obs}) \leq \alpha\)</span>.</p>
+<p>El <span class="math inline">\(\text{valor }p\)</span> se calcula como <span class="math inline">\(P(T \geq t)\)</span> usando la Ecuación <a href="#eq-hipergeometrica" class="no-underline">(1)</a>. Se rechaza <span class="math inline">\(H_0\)</span> a un nivel de significancia <span class="math inline">\(\alpha\)</span> si <span class="math inline">\(P(T \geq t) \leq \alpha\)</span>.</p>
 </div>
+</section>
+</section>
+<section id="observación" class="level3">
+<h3 class="anchored" data-anchor-id="observación">Observación</h3>
+<div class="justify">
+<p>Como se comentó en la <a href="#reseña">reseña</a>, la prueba exacta de Fisher se puede usar para corroborar la asociación de dos variables aleatorias discretas; para este caso se hace la siguiente reformulación respecto a Filas y Columnas. Sean <span class="math inline">\(F\)</span> y <span class="math inline">\(C\)</span> variables aleatorias discretas que solo pueden tomar dos valores, es decir,</p>
+</div>
+<div id="eq-images" class="equation">
+<p><span class="math display">\[
+\begin{aligned}
+F(\Omega_F) = \{f_1,\, f_2\}, &amp;\quad \text{con}\; f_1 \neq f_2 \quad \text{y}\\
+C(\Omega_C) = \{c_1,\, c_2\}, &amp;\quad \text{con}\; c_1 \neq c_2
+\end{aligned}
+\tag{2}
+\]</span></p>
+</div>
+<div class="justify">
+<p>donde <span class="math inline">\(\Omega_F\)</span> y <span class="math inline">\(\Omega_C\)</span> son los espacios muestrales respectivos. Entonces, <span class="math inline">\(F\)</span> modela los valores que se pueden tomar respecto a Fila y análogamente <span class="math inline">\(C\)</span> respecto a Columna.<br>
+Como observación, si se toma la expresión <a href="#eq-images" class="no-underline">(2)</a> se obtiene:</p>
+</div>
+<div id="eq-disjoint" class="equation">
+<p><span class="math display">\[
+\begin{aligned}
+P(F = f_1)\;  +\; &amp; P(F = f_2)  = 1  \quad \text{y}\\
+P(C = c_1)\;  +\; &amp; P(C = c_2)  = 1.
+\end{aligned}
+\tag{3}
+\]</span></p>
+</div>
+<div class="justify">
+<p><strong>Nota</strong>: no confundir los valores de tabla de contingencia <span class="math inline">\(x\)</span>, <span class="math inline">\(c-x\)</span>, <span class="math inline">\(r-x\)</span> y <span class="math inline">\(N-r-c+x\)</span> con aquellos que pueden tomar las variables aleatorias <span class="math inline">\(F\)</span> y <span class="math inline">\(C\)</span>.</p>
+</div>
+<div class="justify">
+<p>Bajo el supuesto de la hipótesis nula y las expresiones <a href="#eq-images" class="no-underline">(2)</a>, <a href="#eq-disjoint" class="no-underline">(3)</a> se demuestra que las variables aleatorias que definen los valores a tomar en Columna y Fila, son independientes. En consecuencia, la definición de probabilidades <span class="math inline">\(p_1\)</span>, <span class="math inline">\(p_2\)</span> y el supuesto de <span class="math inline">\(H_0\)</span> es una condición suficiente que prueba la independencia de las variables aleatorias <span class="math inline">\(F\)</span> y <span class="math inline">\(C\)</span>.</p>
+<p>Bajo la observación del párrafo anterior se puede reescribir el juego de hipótesis de la siguiente manera:</p>
+<p><span class="math display">\[
+\begin{aligned}
+H_0\!: &amp;\quad F \; \text{y} \; C \; \text {son independientes} \\
+H_1\!: &amp;\quad F \; \text{y} \; C \; \text {no son independientes}
+\end{aligned}
+\]</span></p>
+</div>
+</section>
+</section>
+<section id="práctica" class="level2">
+<h2 class="anchored" data-anchor-id="práctica">Práctica</h2>
+<p>Aquí va una reseña de la práctica</p>
+<section id="ejercicio-1" class="level3">
+<h3 class="anchored" data-anchor-id="ejercicio-1">Ejercicio 1</h3>
+<div class="justify">
+<section id="problema" class="level5">
+<h5 class="anchored" data-anchor-id="problema">Problema</h5>
+<p>Un pequeño centro médico aplicó una encuesta para determinar la actitud de disposición de su personal de enfermería para atender a pacientes. La encuesta consistió en una escala de Likert de 15 ítems, con dos opciones positivas, dos negativas y una opción neutral. El estudio se realizó con el propósito de comparar las percepciones entre hombres y mujeres.<br>
+Cada persona fue clasificada de acuerdo con una actitud total, determinada por la suma de los valores asignados a cada ítem de la encuesta. La actitud máxima positiva era de +33, y la actitud máxima negativa de −33.</p>
+<p>Las Tablas <a href="#tbl-table-ex-1" class="quarto-xref">Table&nbsp;1</a> y <a href="#tbl-contingency-ex-1" class="quarto-xref">Table&nbsp;2</a> muestran el número de hombres y mujeres que presentaron actitudes positivas o negativas respecto a su preparación. Participaron cinco hombres y seis mujeres. Cuatro de los hombres obtuvieron resultados positivos en la encuesta, mientras que solo una de las mujeres tuvo un resultado positivo.</p>
+<div class="cell">
+<div id="tbl-table-ex-1" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-table-ex-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;1: Datos recabados del estudio.
+</figcaption>
+<div aria-describedby="tbl-table-ex-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<div style="margin-left: auto; margin-right: auto; width: fit-content;">
+<div class="datatables html-widget html-fill-item" id="htmlwidget-79d157a54bf848ebdc51" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-79d157a54bf848ebdc51">{"x":{"filter":"none","vertical":false,"data":[[1,2,3,4,5,6,7,8,9,10,11],["Hombre","Hombre","Hombre","Hombre","Hombre","Mujer","Mujer","Mujer","Mujer","Mujer","Mujer"],["+30","+14","-21","+22","+9","-22","-13","-20","-7","+19","-31"],["+","+","−","+","+","−","−","−","−","+","−"]],"container":"<table class=\"compact stripe cell-border hover row-border\">\n  <thead>\n    <tr>\n      <th>Participante<\/th>\n      <th>Género<\/th>\n      <th>Puntaje<\/th>\n      <th>Actitud<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"ordering":false,"dom":"t","columnDefs":[{"targets":"_all","className":"dt-left"},{"name":"Participante","targets":0},{"name":"Género","targets":1},{"name":"Puntaje","targets":2},{"name":"Actitud","targets":3}],"initComplete":"function(settings, json) {\n$(this.api().table().node()).css({'font-size': '14px'});\n}","order":[],"autoWidth":false,"orderClasses":false}},"evals":["options.initComplete"],"jsHooks":[]}</script>
+</div>
+</div>
+</div>
+</figure>
+</div>
+</div>
+<div class="cell">
+<div id="tbl-contingency-ex-1" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-contingency-ex-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;2: Tabla de contingencia.
+</figcaption>
+<div aria-describedby="tbl-contingency-ex-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<div style="margin-left: auto; margin-right: auto; width: fit-content;">
+<div class="datatables html-widget html-fill-item" id="htmlwidget-68a393a3f1e417d7ee53" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-68a393a3f1e417d7ee53">{"x":{"filter":"none","vertical":false,"data":[["Positiva","Negativa"],[4,1],[1,5]],"container":"<table class=\"hover\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Hombre<\/th>\n      <th>Mujer<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":-1,"ordering":false,"dom":"t","columnDefs":[{"targets":"_all","className":"dt-center"},{"orderable":false,"targets":0},{"name":" ","targets":0},{"name":"Hombre","targets":1},{"name":"Mujer","targets":2}],"initComplete":"function(settings, json) {\n$(this.api().table().node()).css({'font-size': '16px'});\n$('thead th').css('font-weight', 'normal');\n}","order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[-1,10,25,50,100]}},"evals":["options.initComplete"],"jsHooks":[]}</script>
+</div>
+</div>
+</div>
+</figure>
+</div>
+</div>
+</section>
+<section id="objetivo" class="level5">
+<h5 class="anchored" data-anchor-id="objetivo">Objetivo</h5>
+<p>Determinar si existe una diferencia en la actitud entre hombres y mujeres respecto a su preparación para atender a los pacientes.</p>
+</section>
+</div>
+<section id="planteamiento-de-las-hipótesis-nula-y-alternativa" class="level4">
+<h4 class="anchored" data-anchor-id="planteamiento-de-las-hipótesis-nula-y-alternativa">Planteamiento de las hipótesis nula y alternativa</h4>
+<div class="justify">
+<p>La <strong>hipótesis nula</strong> establece que no hay diferencias entre hombres y mujeres en la encuesta de actitud que mide las percepciones sobre el programa de enseñanza para el cuidado de pacientes.<br>
+La <strong>hipótesis alternativa</strong> plantea que la proporción de hombres con actitudes positivas, <span class="math inline">\(p_{_H}\)</span>, es mayor que la proporción de mujeres con actitudes positivas, <span class="math inline">\(p_{_M}\)</span>.</p>
+<p>Las hipótesis se expresan de la siguiente manera:</p>
+</div>
+<p><span class="math display">\[
+\begin{aligned}
+H_0\!: &amp;\quad p_{_H} = p_{_M} \\
+H_A\!: &amp;\quad p_{_H} &gt; p_{_M}
+\end{aligned}
+\]</span></p>
+<div class="justify">
+<p>En este ejemplo se usará <span class="math inline">\(\alpha = 0.05\)</span>, en otras palabras, existe un 95% de probabilidad de que cualquier diferencia estadística observada sea real y no producto del azar.</p>
+</div>
+<section id="interpretación-de-los-resultados" class="level5 justify">
+<h5 class="anchored" data-anchor-id="interpretación-de-los-resultados">Interpretación de los resultados</h5>
+<p>No se rechazó la hipótesis nula, lo que sugiere que no existe una diferencia real entre las actitudes de hombres y mujeres respecto a su preparación para cuidar a los pacientes.<br>
+Sin embargo, se observó una clara tendencia hacia sentimientos positivos por parte de los hombres y sentimientos negativos por parte de las mujeres.<br>
+La probabilidad fue baja, aunque no significativa. Este tipo de estudio justificaría una investigación adicional con otras muestras para determinar si esta tendencia se manifiesta con mayor claridad.<br>
+Nuestro análisis proporciona cierta evidencia de que existe alguna diferencia, y si se hubiera analizado con un valor crítico más liberal, como <span class="math inline">\(\alpha = 0.10\)</span>, esta prueba estadística habría mostrado significancia.</p>
+</section>
+</section>
+</section>
+<section id="ejercicio-2" class="level3 unnumbered">
+
 
 </section>
 </section>
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body" role="list">
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">Ejercicio 2</h2><div id="refs" class="references csl-bib-body" role="list">
 <div id="ref-nowacki2017" class="csl-entry" role="listitem">
 <div class="csl-left-margin">1. </div><div class="csl-right-inline">Nowacki A. Chi‐square and fisher’s exact tests. <em>Cleveland Clinic Journal of Medicine</em>. 2017;84(9 Suppl 2):e20-e25. doi:<a href="https://doi.org/10.3949/ccjm.84.s2.04">10.3949/ccjm.84.s2.04</a></div>
 </div>
 <div id="ref-conover1999" class="csl-entry" role="listitem">
 <div class="csl-left-margin">2. </div><div class="csl-right-inline">Conover WJ. <em>Practical Nonparametric Statistics</em>. 3rd ed. Wiley; 1999.</div>
+</div>
+<div id="ref-corder2014" class="csl-entry" role="listitem">
+<div class="csl-left-margin">3. </div><div class="csl-right-inline">Corder GW, Foreman DI. <em>Nonparametric Statistics: A Step‑by‑step Approach</em>. 2nd ed. John Wiley &amp; Sons; 2014.</div>
 </div>
 </div></section></div></main>
 <!-- /main column -->

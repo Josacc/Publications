@@ -1,5 +1,5 @@
 ---
-title: "Prueba Exacta de Fisher"
+title: "Prueba exacta de Fisher"
 subtitle: 'De la teoría a la práctica'
 author: 
   name: "J"
@@ -31,20 +31,28 @@ alt="GitHub" style="height: 1.3em; vertical-align: middle;"/> </a>
 
 <br>
 
-### Resumen
+## Reseña
 
 ::: {.small .justify}
-La pruba exacta de Fisher... 
+La prueba exacta de Fisher... 
   
 :::
 
 
-
-
-#### Datos
+## Teoría
 
 ::: {.justify}
-Las $N$ observaciones se resumen en una tabla de contingencia de $2 \times 2$. Los totales de fila, $r$ y $N - r$, y de columna, $c$ y $N - c$, se determinan de antemano; por lo tanto, se consideran fijos.
+Descripción de la teoría
+:::
+
+
+
+### Datos
+
+::: {.justify}
+Las $N$ observaciones se resumen en una tabla de contingencia de $2 \times 2$. 
+Los totales de fila, $r$ y $N - r$, y de columna, $c$ y $N - c$, están determinados 
+de antemano; por lo tanto, se consideran fijos.
 :::
 
 $$
@@ -58,22 +66,23 @@ $$
 \end{array}
 $$
 
+<br>
 
-#### Supuestos de la prueba
 
-1. Cada observación es clasificada exactamente en una celda.  
-2. Los totales de fila y columna son fijos, no aleatorios.
+### Supuestos de la prueba
 
-#### Estadístico de prueba
+1. Cada observación es clasificada exactamente en una celda de la tabla de contingencia.  
+2. Los totales de Fila y Columna de la tabla de contingencia son fijos, no aleatorios.
+3. Las $N$ observaciones provienen de una muestra aleatoria.
+
+
+
+### Estadístico de prueba
 
 ::: {.justify}
-El estadístico de prueba $T$ es el número de observaciones en la celda de la fila 1 y columna 1.
-:::
-
-#### Distribución nula
-
-::: {.justify}
-La distribución exacta de $T$ bajo la hipótesis nula $H_0$ está dada por la distribución hipergeométrica:
+Se define el estadístico de prueba $T$ como el **número de observaciones en la celda de la Fila 1 y Columna 1**. 
+En consecuencia, la distribución exacta de $T$ bajo la hipótesis nula $H_0$ está 
+dada por la distribución hipergeométrica:
 :::
 
 <div id="eq-hipergeometrica" class="equation">
@@ -84,18 +93,18 @@ P(T = x) = \left\{
 0, & \text{en otro caso}
 \end{array}
 \right.
-\tag{1}
+\tag{3}
 $$
 </div>
 
-#### Juego de hipótesis
-Se definen los siguientes parámetros y valor observado:  
+### Juego de hipótesis
+Se definen las siguientes probabilidades y valor observado:  
 
 - Sea $p_1$ la probabilidad de que una observación en la Fila 1 sea clasificada en la Columna 1.  
 - Sea $p_2$ la probabilidad de que una observación en la Fila 2 sea clasificada en la Columna 1.   
-- Sea $t_{obs}$ el valor observado de $T$.
+- Sea $t$ el valor observado de $T$.
 
-#### Prueba bilateral
+##### Prueba bilateral
 
 $$
 \begin{aligned}
@@ -105,10 +114,10 @@ H_1\!: &\quad p_1 \neq p_2
 $$
 
 ::: {.justify}
-Se calcula el $\text{valor }p$ utilizando la usando la Ecuación <a href="#eq-hipergeometrica" class="no-underline">(1)</a>. El $\text{valor }p$ es el doble del menor entre $P(T \leq t_{obs})$ y $P(T \geq t_{obs})$. Se rechaza $H_0$ al nivel de significancia $\alpha$ si el $\text{valor }p$ es menor o igual que $\alpha$.
+Se calcula el $\text{valor }p$ usando la Ecuación <a href="#eq-hipergeometrica" class="no-underline">(1)</a>. El $\text{valor }p$ es el doble del menor entre $P(T \leq t)$ y $P(T \geq t)$. Se rechaza $H_0$ al nivel de significancia $\alpha$ si el $\text{valor }p$ es menor o igual que $\alpha$.
 :::
 
-#### Prueba unilateral inferior
+##### Prueba unilateral inferior
 
 $$
 \begin{aligned}
@@ -118,10 +127,10 @@ H_1\!: &\quad p_1 < p_2
 $$
 
 ::: {.justify}
-El $\text{valor }p$ se calcula como $P(T \leq t_{obs})$ usando la Ecuación <a href="#eq-hipergeometrica" class="no-underline">(1)</a>. Se rechaza $H_0$ a un nivel de significancia $\alpha$ si $P(T \leq t_{obs}) \leq \alpha$.
+El $\text{valor }p$ se calcula como $P(T \leq t)$ usando la Ecuación <a href="#eq-hipergeometrica" class="no-underline">(1)</a>. Se rechaza $H_0$ a un nivel de significancia $\alpha$ si $P(T \leq t) \leq \alpha$.
 :::
 
-#### Prueba unilateral superior
+##### Prueba unilateral superior
 
 $$
 \begin{aligned}
@@ -131,10 +140,172 @@ H_1\!: &\quad p_1 > p_2
 $$
 
 ::: {.justify}
-El $\text{valor }p$ se calcula como $P(T \geq t_{obs})$ usando la Ecuación <a href="#eq-hipergeometrica" class="no-underline">(1)</a>. Se rechaza $H_0$ a un nivel de significancia $\alpha$ si $P(T \geq t_{obs}) \leq \alpha$.
+El $\text{valor }p$ se calcula como $P(T \geq t)$ usando la Ecuación <a href="#eq-hipergeometrica" class="no-underline">(1)</a>. Se rechaza $H_0$ a un nivel de significancia $\alpha$ si $P(T \geq t) \leq \alpha$.
+:::
+
+### Observación
+
+::: {.justify}
+Como se comentó en la [reseña](#reseña), la prueba exacta de Fisher se puede usar para corroborar 
+la asociación de dos variables aleatorias discretas; para este caso se hace la siguiente 
+reformulación respecto a Filas y Columnas. Sean $F$ y $C$ variables aleatorias 
+discretas que solo pueden tomar dos valores, es decir, 
+:::
+
+<div id="eq-images" class="equation">
+$$
+\begin{aligned}
+F(\Omega_F) = \{f_1,\, f_2\}, &\quad \text{con}\; f_1 \neq f_2 \quad \text{y}\\
+C(\Omega_C) = \{c_1,\, c_2\}, &\quad \text{con}\; c_1 \neq c_2
+\end{aligned}
+\tag{2}
+$$
+</div>
+
+
+::: {.justify}
+donde $\Omega_F$ y $\Omega_C$ son los espacios muestrales respectivos. Entonces, $F$ modela 
+los valores que se pueden tomar respecto a Fila y análogamente $C$ respecto a Columna.  
+Como observación, si se toma la expresión <a href="#eq-images" class="no-underline">(2)</a> se obtiene: 
+:::
+<div id="eq-disjoint" class="equation">
+$$
+\begin{aligned}
+P(F = f_1)\;  +\; & P(F = f_2)  = 1  \quad \text{y}\\
+P(C = c_1)\;  +\; & P(C = c_2)  = 1. 
+\end{aligned}
+\tag{3}
+$$
+</div>
+
+
+::: {.justify}
+**Nota**: no confundir los valores de tabla de contingencia $x$, $c-x$, $r-x$ y $N-r-c+x$ con 
+aquellos que pueden tomar las variables aleatorias $F$ y $C$.
+:::
+::: {.justify}
+Bajo el supuesto de la hipótesis nula y las expresiones <a href="#eq-images" class="no-underline">(2)</a>,
+<a href="#eq-disjoint" class="no-underline">(3)</a> se demuestra que las variables aleatorias 
+que definen los valores a tomar en Columna y Fila, son independientes. 
+En consecuencia, la definición de probabilidades $p_1$, $p_2$ y el supuesto de 
+$H_0$ es una condición suficiente que prueba la independencia de las variables aleatorias $F$ y $C$.  
+
+Bajo la observación del párrafo anterior se puede reescribir el juego de hipótesis de 
+la siguiente manera:
+
+$$
+\begin{aligned}
+H_0\!: &\quad F \; \text{y} \; C \; \text {son independientes} \\
+H_1\!: &\quad F \; \text{y} \; C \; \text {no son independientes}
+\end{aligned}
+$$
+
 :::
 
 
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+#| results: "hide"
+
+analysis_files <- list.files("main/", pattern = "^\\d.+\\.R$", full.names = TRUE)
+invisible(purrr::map(analysis_files, source))
+```
+
+
+
+## Práctica
+
+Aquí va una reseña de la práctica
+
+### Ejercicio 1
+
+
+
+
+::: {.justify}
+##### Problema
+Un pequeño centro médico aplicó una encuesta para determinar la actitud de 
+disposición de su personal de enfermería para atender a pacientes. La encuesta 
+consistió en una escala de Likert de 15 ítems, con dos opciones positivas, dos 
+negativas y una opción neutral. El estudio se realizó con el propósito de comparar 
+las percepciones entre hombres y mujeres.  
+Cada persona fue clasificada de acuerdo con una actitud total, determinada por la 
+suma de los valores asignados a cada ítem de la encuesta. La actitud máxima positiva 
+era de +33, y la actitud máxima negativa de −33.  
+
+Las Tablas @tbl-table-ex-1 y @tbl-contingency-ex-1 muestran el número de hombres y mujeres que presentaron 
+actitudes positivas o negativas respecto a su preparación. Participaron cinco 
+hombres y seis mujeres. Cuatro de los hombres obtuvieron resultados positivos en la 
+encuesta, mientras que solo una de las mujeres tuvo un resultado positivo.
+
+```{r table_ex_1}
+#| echo: false
+#| label: tbl-table-ex-1
+#| tbl-cap: "Datos recabados del estudio."
+
+htmltools::div(
+  style = "margin-left: auto; margin-right: auto; width: fit-content;",
+  table_ex_1
+)
+```
+
+```{r table_contingency_ex_1}
+#| echo: false
+#| label: tbl-contingency-ex-1
+#| tbl-cap: "Tabla de contingencia."
+
+htmltools::div(
+  style = "margin-left: auto; margin-right: auto; width: fit-content;",
+  table_contingency_ex_1
+)
+```
+
+##### Objetivo
+Determinar si existe una diferencia en la actitud entre hombres y mujeres 
+respecto a su preparación para atender a los pacientes.
+:::
+
+#### Planteamiento de las hipótesis nula y alternativa
+
+::: {.justify}
+La **hipótesis nula** establece que no hay diferencias entre hombres y mujeres en la encuesta de actitud que mide las percepciones sobre el programa de enseñanza para el cuidado de pacientes.  
+La **hipótesis alternativa** plantea que la proporción de hombres con actitudes positivas, $p_{_H}$, es mayor que la proporción de mujeres con actitudes positivas, $p_{_M}$.
+
+Las hipótesis se expresan de la siguiente manera:
+:::
+
+$$
+\begin{aligned}
+H_0\!: &\quad p_{_H} = p_{_M} \\
+H_A\!: &\quad p_{_H} > p_{_M}
+\end{aligned}
+$$
+
+::: {.justify}
+En este ejemplo se usará $\alpha = 0.05$, en otras palabras, existe un 95% de 
+probabilidad de que cualquier diferencia estadística observada sea real y no 
+producto del azar.
+:::
+
+::: {.justify}
+##### Interpretación de los resultados
+No se rechazó la hipótesis nula, lo que sugiere que no existe una diferencia real 
+entre las actitudes de hombres y mujeres respecto a su preparación para cuidar a los pacientes.  
+Sin embargo, se observó una clara tendencia hacia sentimientos positivos por parte 
+de los hombres y sentimientos negativos por parte de las mujeres.  
+La probabilidad fue baja, aunque no significativa. Este tipo de estudio justificaría 
+una investigación adicional con otras muestras para determinar si esta tendencia se manifiesta con mayor claridad.  
+Nuestro análisis proporciona cierta evidencia de que existe alguna diferencia, y 
+si se hubiera analizado con un valor crítico más liberal, como $\alpha = 0.10$, 
+esta prueba estadística habría mostrado significancia.
+:::
+
+
+
+### Ejercicio 2
 
 
 
