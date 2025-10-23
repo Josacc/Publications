@@ -2,7 +2,7 @@
 
 
 
-data_source_ex_1 <- tribble(
+data_source_exercise_1 <- tribble(
   ~Participante, ~Género,  ~Puntaje, ~Actitud,
   1,             "Hombre", "+30",    "+",
   2,             "Hombre", "+14",    "+",
@@ -16,3 +16,10 @@ data_source_ex_1 <- tribble(
   10,            "Mujer",  "+19",    "+",
   11,            "Mujer",  "-31",    "−"
 )
+
+
+
+data_main_exercise_1 <-
+  data_source_exercise_1 %>%
+  select(Actitud, Género) %>%
+  mutate(Actitud = str_replace_all(Actitud, c("−" = "Negativa", "\\+" = "Positiva")))

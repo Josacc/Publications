@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es"><head>
 
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.7.32">
@@ -7,7 +7,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="J">
-<meta name="dcterms.date" content="2025-10-21">
 
 <title>Prueba exacta de Fisher</title>
 <style>
@@ -21,6 +20,41 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 /* CSS for citations */
 div.csl-bib-body { }
@@ -114,7 +148,7 @@ window.Quarto = {
 <div id="quarto-content" class="page-columns page-rows-contents page-layout-article toc-left">
 <div id="quarto-sidebar-toc-left" class="sidebar toc-left">
   <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
+    <h2 id="toc-title">Tabla de contenidos</h2>
    
   <ul>
   <li><a href="#reseña" id="toc-reseña" class="nav-link active" data-scroll-target="#reseña">Reseña</a></li>
@@ -149,16 +183,16 @@ window.Quarto = {
 <div class="quarto-title-meta">
 
     <div>
-    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-heading">Autor/a</div>
     <div class="quarto-title-meta-contents">
              <p>J <a href="mailto:hello@mail.com" class="quarto-title-author-email"><i class="bi bi-envelope"></i></a> </p>
           </div>
   </div>
     
     <div>
-    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-heading">Fecha de publicación</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">October 21, 2025</p>
+      <p class="date">22 de octubre de 2025</p>
     </div>
   </div>
   
@@ -320,25 +354,62 @@ H_1\!: &amp;\quad F \; \text{y} \; C \; \text {no son independientes}
 <section id="práctica" class="level2">
 <h2 class="anchored" data-anchor-id="práctica">Práctica</h2>
 <p>Aquí va una reseña de la práctica</p>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(DT)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(broom)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggsci)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggmosaic)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
 <section id="ejercicio-1" class="level3">
 <h3 class="anchored" data-anchor-id="ejercicio-1">Ejercicio 1</h3>
-<div class="justify">
-<section id="problema" class="level5">
+<div class="cell">
+<details open="" class="code-fold">
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>data_source_exercise_1 <span class="ot">&lt;-</span> <span class="fu">tribble</span>(</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="sc">~</span>Participante, <span class="sc">~</span>Género,  <span class="sc">~</span>Puntaje, <span class="sc">~</span>Actitud,</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="dv">1</span>,             <span class="st">"Hombre"</span>, <span class="st">"+30"</span>,    <span class="st">"+"</span>,</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="dv">2</span>,             <span class="st">"Hombre"</span>, <span class="st">"+14"</span>,    <span class="st">"+"</span>,</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="dv">3</span>,             <span class="st">"Hombre"</span>, <span class="st">"-21"</span>,    <span class="st">"−"</span>,</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="dv">4</span>,             <span class="st">"Hombre"</span>, <span class="st">"+22"</span>,    <span class="st">"+"</span>,</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  <span class="dv">5</span>,             <span class="st">"Hombre"</span>, <span class="st">"+9"</span> ,    <span class="st">"+"</span>,</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  <span class="dv">6</span>,             <span class="st">"Mujer"</span>,  <span class="st">"-22"</span>,    <span class="st">"−"</span>,</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  <span class="dv">7</span>,             <span class="st">"Mujer"</span>,  <span class="st">"-13"</span>,    <span class="st">"−"</span>,</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>  <span class="dv">8</span>,             <span class="st">"Mujer"</span>,  <span class="st">"-20"</span>,    <span class="st">"−"</span>,</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>  <span class="dv">9</span>,             <span class="st">"Mujer"</span>,  <span class="st">"-7"</span> ,    <span class="st">"−"</span>,</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>  <span class="dv">10</span>,            <span class="st">"Mujer"</span>,  <span class="st">"+19"</span>,    <span class="st">"+"</span>,</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>  <span class="dv">11</span>,            <span class="st">"Mujer"</span>,  <span class="st">"-31"</span>,    <span class="st">"−"</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>data_main_exercise_1 <span class="ot">&lt;-</span> data_source_exercise_1 <span class="sc">%&gt;%</span></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Actitud, Género) <span class="sc">%&gt;%</span></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Actitud =</span> <span class="fu">str_replace_all</span>(</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>    Actitud, </span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>    <span class="fu">c</span>(<span class="st">"−"</span> <span class="ot">=</span> <span class="st">"Negativa"</span>, <span class="st">"</span><span class="sc">\\</span><span class="st">+"</span> <span class="ot">=</span> <span class="st">"Positiva"</span>)</span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>  ))</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<section id="problema" class="level5 justify">
 <h5 class="anchored" data-anchor-id="problema">Problema</h5>
 <p>Un pequeño centro médico aplicó una encuesta para determinar la actitud de disposición de su personal de enfermería para atender a pacientes. La encuesta consistió en una escala de Likert de 15 ítems, con dos opciones positivas, dos negativas y una opción neutral. El estudio se realizó con el propósito de comparar las percepciones entre hombres y mujeres.<br>
 Cada persona fue clasificada de acuerdo con una actitud total, determinada por la suma de los valores asignados a cada ítem de la encuesta. La actitud máxima positiva era de +33, y la actitud máxima negativa de −33.</p>
-<p>Las Tablas <a href="#tbl-table-ex-1" class="quarto-xref">Table&nbsp;1</a> y <a href="#tbl-contingency-ex-1" class="quarto-xref">Table&nbsp;2</a> muestran el número de hombres y mujeres que presentaron actitudes positivas o negativas respecto a su preparación. Participaron cinco hombres y seis mujeres. Cuatro de los hombres obtuvieron resultados positivos en la encuesta, mientras que solo una de las mujeres tuvo un resultado positivo.</p>
+<p>Las Tablas <a href="#tbl-table-ex-1" class="quarto-xref">Tabla&nbsp;1</a> y <a href="#tbl-contingency-ex-1" class="quarto-xref">Tabla&nbsp;2</a> muestran el número de hombres y mujeres que presentaron actitudes positivas o negativas respecto a su preparación. Participaron cinco hombres y seis mujeres. Cuatro de los hombres obtuvieron resultados positivos en la encuesta, mientras que solo una de las mujeres tuvo un resultado positivo.</p>
+</section>
 <div class="cell">
 <div id="tbl-table-ex-1" class="cell quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-table-ex-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;1: Datos recabados del estudio.
+Tabla&nbsp;1: Datos recabados del estudio.
 </figcaption>
 <div aria-describedby="tbl-table-ex-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
 <div style="margin-left: auto; margin-right: auto; width: fit-content;">
-<div class="datatables html-widget html-fill-item" id="htmlwidget-79d157a54bf848ebdc51" style="width:100%;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-79d157a54bf848ebdc51">{"x":{"filter":"none","vertical":false,"data":[[1,2,3,4,5,6,7,8,9,10,11],["Hombre","Hombre","Hombre","Hombre","Hombre","Mujer","Mujer","Mujer","Mujer","Mujer","Mujer"],["+30","+14","-21","+22","+9","-22","-13","-20","-7","+19","-31"],["+","+","−","+","+","−","−","−","−","+","−"]],"container":"<table class=\"compact stripe cell-border hover row-border\">\n  <thead>\n    <tr>\n      <th>Participante<\/th>\n      <th>Género<\/th>\n      <th>Puntaje<\/th>\n      <th>Actitud<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"ordering":false,"dom":"t","columnDefs":[{"targets":"_all","className":"dt-left"},{"name":"Participante","targets":0},{"name":"Género","targets":1},{"name":"Puntaje","targets":2},{"name":"Actitud","targets":3}],"initComplete":"function(settings, json) {\n$(this.api().table().node()).css({'font-size': '14px'});\n}","order":[],"autoWidth":false,"orderClasses":false}},"evals":["options.initComplete"],"jsHooks":[]}</script>
+<div class="datatables html-widget html-fill-item" id="htmlwidget-27de144967d3184a75a2" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-27de144967d3184a75a2">{"x":{"filter":"none","vertical":false,"data":[[1,2,3,4,5,6,7,8,9,10,11],["Hombre","Hombre","Hombre","Hombre","Hombre","Mujer","Mujer","Mujer","Mujer","Mujer","Mujer"],["+30","+14","-21","+22","+9","-22","-13","-20","-7","+19","-31"],["+","+","−","+","+","−","−","−","−","+","−"]],"container":"<table class=\"compact stripe cell-border hover row-border\">\n  <thead>\n    <tr>\n      <th>Participante<\/th>\n      <th>Género<\/th>\n      <th>Puntaje<\/th>\n      <th>Actitud<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"ordering":false,"dom":"t","columnDefs":[{"targets":"_all","className":"dt-left"},{"name":"Participante","targets":0},{"name":"Género","targets":1},{"name":"Puntaje","targets":2},{"name":"Actitud","targets":3}],"initComplete":"function(settings, json) {\n$(this.api().table().node()).css({'font-size': '14px'});\n}","order":[],"autoWidth":false,"orderClasses":false}},"evals":["options.initComplete"],"jsHooks":[]}</script>
 </div>
 </div>
 </div>
@@ -349,25 +420,67 @@ Table&nbsp;1: Datos recabados del estudio.
 <div id="tbl-contingency-ex-1" class="cell quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-contingency-ex-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;2: Tabla de contingencia.
+Tabla&nbsp;2: Tabla de contingencia.
 </figcaption>
 <div aria-describedby="tbl-contingency-ex-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
 <div style="margin-left: auto; margin-right: auto; width: fit-content;">
-<div class="datatables html-widget html-fill-item" id="htmlwidget-68a393a3f1e417d7ee53" style="width:100%;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-68a393a3f1e417d7ee53">{"x":{"filter":"none","vertical":false,"data":[["Positiva","Negativa"],[4,1],[1,5]],"container":"<table class=\"hover\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Hombre<\/th>\n      <th>Mujer<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":-1,"ordering":false,"dom":"t","columnDefs":[{"targets":"_all","className":"dt-center"},{"orderable":false,"targets":0},{"name":" ","targets":0},{"name":"Hombre","targets":1},{"name":"Mujer","targets":2}],"initComplete":"function(settings, json) {\n$(this.api().table().node()).css({'font-size': '16px'});\n$('thead th').css('font-weight', 'normal');\n}","order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[-1,10,25,50,100]}},"evals":["options.initComplete"],"jsHooks":[]}</script>
+<div class="datatables html-widget html-fill-item" id="htmlwidget-8e2bd0c02891c382eb83" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-8e2bd0c02891c382eb83">{"x":{"filter":"none","vertical":false,"data":[["Positiva","Negativa"],[4,1],[1,5]],"container":"<table class=\"hover\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Hombre<\/th>\n      <th>Mujer<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":-1,"ordering":false,"dom":"t","columnDefs":[{"targets":"_all","className":"dt-center"},{"orderable":false,"targets":0},{"name":" ","targets":0},{"name":"Hombre","targets":1},{"name":"Mujer","targets":2}],"initComplete":"function(settings, json) {\n$(this.api().table().node()).css({'font-size': '16px'});\n$('thead th').css('font-weight', 'normal');\n}","order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[-1,10,25,50,100]}},"evals":["options.initComplete"],"jsHooks":[]}</script>
 </div>
 </div>
 </div>
 </figure>
 </div>
 </div>
-</section>
 <section id="objetivo" class="level5">
 <h5 class="anchored" data-anchor-id="objetivo">Objetivo</h5>
+<div class="justify">
 <p>Determinar si existe una diferencia en la actitud entre hombres y mujeres respecto a su preparación para atender a los pacientes.</p>
-</section>
 </div>
+</section>
+<section id="gráfica" class="level5">
+<h5 class="anchored" data-anchor-id="gráfica">Gráfica</h5>
+<div class="justify">
+<p>Descripción de gráfico…</p>
+</div>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>data_main_exercise_1 <span class="sc">%&gt;%</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_mosaic</span>(</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">product</span>(Actitud, Género), <span class="at">fill =</span> Actitud), </span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">show.legend =</span> <span class="cn">FALSE</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_npg</span>() <span class="sc">+</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">'Género'</span>, <span class="at">y =</span> <span class="st">'Actitud'</span>) <span class="sc">+</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.title   =</span> <span class="fu">element_text</span>(<span class="at">vjust =</span> <span class="dv">3</span>),</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.title.x =</span> <span class="fu">element_text</span>(<span class="at">vjust =</span> <span class="sc">-</span><span class="dv">5</span>),</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.title.y =</span> <span class="fu">element_text</span>(<span class="at">vjust =</span> <span class="dv">7</span>),</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.margin  =</span> <span class="fu">margin</span>(<span class="at">t =</span> <span class="dv">10</span>, <span class="at">r =</span> <span class="dv">10</span>, <span class="at">b =</span> <span class="dv">30</span>, <span class="at">l =</span> <span class="dv">30</span>)</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div class="figure-caption">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div id="fig-mosaic-exe-1" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-mosaic-exe-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="Fishers_Exact_Test_files/figure-html/fig-mosaic-exe-1-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-mosaic-exe-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;1: Frecuencia combinada de Género y Actitud.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
 <section id="planteamiento-de-las-hipótesis-nula-y-alternativa" class="level4">
 <h4 class="anchored" data-anchor-id="planteamiento-de-las-hipótesis-nula-y-alternativa">Planteamiento de las hipótesis nula y alternativa</h4>
 <div class="justify">
@@ -401,13 +514,13 @@ Nuestro análisis proporciona cierta evidencia de que existe alguna diferencia, 
 
 <div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">Ejercicio 2</h2><div id="refs" class="references csl-bib-body" role="list">
 <div id="ref-nowacki2017" class="csl-entry" role="listitem">
-<div class="csl-left-margin">1. </div><div class="csl-right-inline">Nowacki A. Chi‐square and fisher’s exact tests. <em>Cleveland Clinic Journal of Medicine</em>. 2017;84(9 Suppl 2):e20-e25. doi:<a href="https://doi.org/10.3949/ccjm.84.s2.04">10.3949/ccjm.84.s2.04</a></div>
+<div class="csl-left-margin">1. </div><div class="csl-right-inline">Nowacki A. Chi‐square and Fisher’s exact tests. <em>Cleveland Clinic Journal of Medicine</em>. 2017;84(9 Suppl 2):e20-e25. doi:<a href="https://doi.org/10.3949/ccjm.84.s2.04">10.3949/ccjm.84.s2.04</a></div>
 </div>
 <div id="ref-conover1999" class="csl-entry" role="listitem">
-<div class="csl-left-margin">2. </div><div class="csl-right-inline">Conover WJ. <em>Practical Nonparametric Statistics</em>. 3rd ed. Wiley; 1999.</div>
+<div class="csl-left-margin">2. </div><div class="csl-right-inline">Conover WJ. <em>Practical Nonparametric Statistics</em>. 3.ª ed. Wiley; 1999.</div>
 </div>
 <div id="ref-corder2014" class="csl-entry" role="listitem">
-<div class="csl-left-margin">3. </div><div class="csl-right-inline">Corder GW, Foreman DI. <em>Nonparametric Statistics: A Step‑by‑step Approach</em>. 2nd ed. John Wiley &amp; Sons; 2014.</div>
+<div class="csl-left-margin">3. </div><div class="csl-right-inline">Corder GW, Foreman DI. <em>Nonparametric Statistics: A Step‑by‑Step Approach</em>. 2.ª ed. John Wiley &amp; Sons; 2014.</div>
 </div>
 </div></section></div></main>
 <!-- /main column -->
@@ -436,12 +549,12 @@ Nuestro análisis proporciona cierta evidencia de que existe alguna diferencia, 
       // flash "checked"
       button.classList.add('code-copy-button-checked');
       var currentTitle = button.getAttribute("title");
-      button.setAttribute("title", "Copied!");
+      button.setAttribute("title", "Copiado");
       let tooltip;
       if (window.bootstrap) {
         button.setAttribute("data-bs-toggle", "tooltip");
         button.setAttribute("data-bs-placement", "left");
-        button.setAttribute("data-bs-title", "Copied!");
+        button.setAttribute("data-bs-title", "Copiado");
         tooltip = new bootstrap.Tooltip(button, 
           { trigger: "manual", 
             customClass: "code-copy-button-tooltip",

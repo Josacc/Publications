@@ -1,8 +1,7 @@
-
 # Exercise 1 --------------------------------------------------------------
 
-table_ex_1 <-
-  data_source_ex_1 %>%
+table_exercise_1 <-
+  data_source_exercise_1 %>%
   datatable(
     rownames = FALSE,
     class    = "compact stripe cell-border hover row-border",
@@ -21,10 +20,9 @@ table_ex_1 <-
   )
 
 
-table_contingency_ex_1 <-
-  data_source_ex_1 %>%
-    select(Actitud, Género) %>%
-    mutate(Actitud = str_replace_all(Actitud, c("−" = "Negativa", "\\+" = "Positiva"))) %>%
+
+table_contingency_exercise_1 <-
+  data_main_exercise_1 %>%
     table() %>%
     as.data.frame.matrix() %>%
     .[c("Positiva", "Negativa"), ] %>%

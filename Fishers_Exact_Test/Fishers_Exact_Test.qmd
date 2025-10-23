@@ -19,6 +19,7 @@ format:
     toc-location: left
     fig-numbering: true
     # self-contained: true
+lang: es
 page-layout: article
 editor: source
 ---
@@ -220,9 +221,53 @@ invisible(purrr::map(analysis_files, source))
 
 Aquí va una reseña de la práctica
 
+```{r }
+#| eval: false
+#| echo: true
+#| code-fold: show
+
+library(tidyverse)
+library(DT)
+library(broom)
+library(ggsci)
+library(ggmosaic)
+  
+```
+
+
+
+
 ### Ejercicio 1
 
+```{r }
+#| eval: false
+#| echo: true
+#| code-fold: show
 
+data_source_exercise_1 <- tribble(
+  ~Participante, ~Género,  ~Puntaje, ~Actitud,
+  1,             "Hombre", "+30",    "+",
+  2,             "Hombre", "+14",    "+",
+  3,             "Hombre", "-21",    "−",
+  4,             "Hombre", "+22",    "+",
+  5,             "Hombre", "+9" ,    "+",
+  6,             "Mujer",  "-22",    "−",
+  7,             "Mujer",  "-13",    "−",
+  8,             "Mujer",  "-20",    "−",
+  9,             "Mujer",  "-7" ,    "−",
+  10,            "Mujer",  "+19",    "+",
+  11,            "Mujer",  "-31",    "−"
+)
+
+
+data_main_exercise_1 <- data_source_exercise_1 %>%
+  select(Actitud, Género) %>%
+  mutate(Actitud = str_replace_all(
+    Actitud, 
+    c("−" = "Negativa", "\\+" = "Positiva")
+  ))
+  
+```
 
 
 ::: {.justify}
@@ -240,6 +285,9 @@ Las Tablas @tbl-table-ex-1 y @tbl-contingency-ex-1 muestran el número de hombre
 actitudes positivas o negativas respecto a su preparación. Participaron cinco 
 hombres y seis mujeres. Cuatro de los hombres obtuvieron resultados positivos en la 
 encuesta, mientras que solo una de las mujeres tuvo un resultado positivo.
+:::
+
+
 
 ```{r table_ex_1}
 #| echo: false
@@ -248,9 +296,12 @@ encuesta, mientras que solo una de las mujeres tuvo un resultado positivo.
 
 htmltools::div(
   style = "margin-left: auto; margin-right: auto; width: fit-content;",
-  table_ex_1
+  table_exercise_1
 )
 ```
+
+
+
 
 ```{r table_contingency_ex_1}
 #| echo: false
@@ -259,14 +310,64 @@ htmltools::div(
 
 htmltools::div(
   style = "margin-left: auto; margin-right: auto; width: fit-content;",
-  table_contingency_ex_1
+  table_contingency_exercise_1
 )
 ```
 
+
+
 ##### Objetivo
+
+::: {.justify}
 Determinar si existe una diferencia en la actitud entre hombres y mujeres 
 respecto a su preparación para atender a los pacientes.
 :::
+
+##### Gráfica
+
+::: {.justify}
+Descripción de gráfico...
+:::
+
+
+
+```{r }
+#| eval: false
+#| echo: true
+#| code-fold: show
+
+data_main_exercise_1 %>%
+  ggplot() +
+  geom_mosaic(
+    aes(x = product(Actitud, Género), fill = Actitud), 
+    show.legend = FALSE
+  ) +
+  scale_fill_npg() +
+  labs(x = 'Género', y = 'Actitud') +
+  theme_minimal() +
+  theme(
+    plot.title   = element_text(vjust = 3),
+    axis.title.x = element_text(vjust = -5),
+    axis.title.y = element_text(vjust = 7),
+    plot.margin  = margin(t = 10, r = 10, b = 30, l = 30)
+  )
+
+```
+
+
+
+::: figure-caption
+```{r plot_mosaic_exe_1}
+#| echo: false
+#| label: fig-mosaic-exe-1
+#| fig-align: "center"
+#| fig-cap: "Frecuencia combinada de Género y Actitud."
+
+plot_mosaic_exercise_1
+```
+:::
+
+
 
 #### Planteamiento de las hipótesis nula y alternativa
 
