@@ -184,6 +184,7 @@ $$
 **Nota**: no confundir los valores de tabla de contingencia $x$, $c-x$, $r-x$ y $N-r-c+x$ con 
 aquellos que pueden tomar las variables aleatorias $F$ y $C$.
 :::
+
 ::: {.justify}
 Bajo el supuesto de la hipótesis nula y las expresiones <a href="#eq-images" class="no-underline">(2)</a>,
 <a href="#eq-disjoint" class="no-underline">(3)</a> se demuestra que las variables aleatorias 
@@ -219,7 +220,21 @@ invisible(purrr::map(analysis_files, source))
 
 ## Práctica
 
-Aquí va una reseña de la práctica
+::: {.justify}
+Se abordará la prática mediante la resolución de dos ejercicios con el 
+<a href="https://www.r-project.org/" target="_blank">software estadístico R</a>; 
+para una mejor experiencia se sugiere el uso del <a href="https://posit.co/download/rstudio/" target="_blank">IDE RStudio</a>.
+:::
+
+
+##### Bibliotecas
+
+::: {.justify}
+Se deben cargar las bilbiotecas necesarias para ambos ejercicicos. En caso de no tener 
+descargado los respectivos paquetes consultar 
+<a href="https://r4ds.hadley.nz/data-visualize.html#prerequisites" target="_blank">aquí</a>
+:::
+
 
 ```{r }
 #| eval: false
@@ -239,6 +254,8 @@ library(ggmosaic)
 
 ### Ejercicio 1
 
+Se toma el ejercicio de la sección 8.5.2 de *Nonparametric Statistics: A Step‑by‑Step Approach* [@corder2014], 
+notemos ...
 ```{r }
 #| eval: false
 #| echo: true

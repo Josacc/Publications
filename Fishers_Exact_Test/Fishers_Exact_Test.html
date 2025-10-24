@@ -192,7 +192,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Fecha de publicación</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">22 de octubre de 2025</p>
+      <p class="date">23 de octubre de 2025</p>
     </div>
   </div>
   
@@ -353,7 +353,14 @@ H_1\!: &amp;\quad F \; \text{y} \; C \; \text {no son independientes}
 </section>
 <section id="práctica" class="level2">
 <h2 class="anchored" data-anchor-id="práctica">Práctica</h2>
-<p>Aquí va una reseña de la práctica</p>
+<div class="justify">
+<p>Se abordará la prática mediante la resolución de dos ejercicios con el <a href="https://www.r-project.org/" target="_blank">software estadístico R</a>; para una mejor experiencia se sugiere el uso del <a href="https://posit.co/download/rstudio/" target="_blank">IDE RStudio</a>.</p>
+</div>
+<section id="bibliotecas" class="level5">
+<h5 class="anchored" data-anchor-id="bibliotecas">Bibliotecas</h5>
+<div class="justify">
+<p>Se deben cargar las bilbiotecas necesarias para ambos ejercicicos. En caso de no tener descargado los respectivos paquetes consultar <a href="https://r4ds.hadley.nz/data-visualize.html#prerequisites" target="_blank">aquí</a></p>
+</div>
 <div class="cell">
 <details open="" class="code-fold">
 <summary>Código</summary>
@@ -364,8 +371,10 @@ H_1\!: &amp;\quad F \; \text{y} \; C \; \text {no son independientes}
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggmosaic)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
+</section>
 <section id="ejercicio-1" class="level3">
 <h3 class="anchored" data-anchor-id="ejercicio-1">Ejercicio 1</h3>
+<p>Se toma el ejercicio de la sección 8.5.2 de <em>Nonparametric Statistics: A Step‑by‑Step Approach</em><span class="citation" data-cites="corder2014"><sup><a href="#ref-corder2014" role="doc-biblioref">1</a></sup></span>, notemos …</p>
 <div class="cell">
 <details open="" class="code-fold">
 <summary>Código</summary>
@@ -408,8 +417,8 @@ Tabla&nbsp;1: Datos recabados del estudio.
 <div aria-describedby="tbl-table-ex-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
 <div style="margin-left: auto; margin-right: auto; width: fit-content;">
-<div class="datatables html-widget html-fill-item" id="htmlwidget-27de144967d3184a75a2" style="width:100%;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-27de144967d3184a75a2">{"x":{"filter":"none","vertical":false,"data":[[1,2,3,4,5,6,7,8,9,10,11],["Hombre","Hombre","Hombre","Hombre","Hombre","Mujer","Mujer","Mujer","Mujer","Mujer","Mujer"],["+30","+14","-21","+22","+9","-22","-13","-20","-7","+19","-31"],["+","+","−","+","+","−","−","−","−","+","−"]],"container":"<table class=\"compact stripe cell-border hover row-border\">\n  <thead>\n    <tr>\n      <th>Participante<\/th>\n      <th>Género<\/th>\n      <th>Puntaje<\/th>\n      <th>Actitud<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"ordering":false,"dom":"t","columnDefs":[{"targets":"_all","className":"dt-left"},{"name":"Participante","targets":0},{"name":"Género","targets":1},{"name":"Puntaje","targets":2},{"name":"Actitud","targets":3}],"initComplete":"function(settings, json) {\n$(this.api().table().node()).css({'font-size': '14px'});\n}","order":[],"autoWidth":false,"orderClasses":false}},"evals":["options.initComplete"],"jsHooks":[]}</script>
+<div class="datatables html-widget html-fill-item" id="htmlwidget-ce30bb498806f48a0ca0" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-ce30bb498806f48a0ca0">{"x":{"filter":"none","vertical":false,"data":[[1,2,3,4,5,6,7,8,9,10,11],["Hombre","Hombre","Hombre","Hombre","Hombre","Mujer","Mujer","Mujer","Mujer","Mujer","Mujer"],["+30","+14","-21","+22","+9","-22","-13","-20","-7","+19","-31"],["+","+","−","+","+","−","−","−","−","+","−"]],"container":"<table class=\"compact stripe cell-border hover row-border\">\n  <thead>\n    <tr>\n      <th>Participante<\/th>\n      <th>Género<\/th>\n      <th>Puntaje<\/th>\n      <th>Actitud<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"ordering":false,"dom":"t","columnDefs":[{"targets":"_all","className":"dt-left"},{"name":"Participante","targets":0},{"name":"Género","targets":1},{"name":"Puntaje","targets":2},{"name":"Actitud","targets":3}],"initComplete":"function(settings, json) {\n$(this.api().table().node()).css({'font-size': '14px'});\n}","order":[],"autoWidth":false,"orderClasses":false}},"evals":["options.initComplete"],"jsHooks":[]}</script>
 </div>
 </div>
 </div>
@@ -425,8 +434,8 @@ Tabla&nbsp;2: Tabla de contingencia.
 <div aria-describedby="tbl-contingency-ex-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
 <div style="margin-left: auto; margin-right: auto; width: fit-content;">
-<div class="datatables html-widget html-fill-item" id="htmlwidget-8e2bd0c02891c382eb83" style="width:100%;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-8e2bd0c02891c382eb83">{"x":{"filter":"none","vertical":false,"data":[["Positiva","Negativa"],[4,1],[1,5]],"container":"<table class=\"hover\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Hombre<\/th>\n      <th>Mujer<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":-1,"ordering":false,"dom":"t","columnDefs":[{"targets":"_all","className":"dt-center"},{"orderable":false,"targets":0},{"name":" ","targets":0},{"name":"Hombre","targets":1},{"name":"Mujer","targets":2}],"initComplete":"function(settings, json) {\n$(this.api().table().node()).css({'font-size': '16px'});\n$('thead th').css('font-weight', 'normal');\n}","order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[-1,10,25,50,100]}},"evals":["options.initComplete"],"jsHooks":[]}</script>
+<div class="datatables html-widget html-fill-item" id="htmlwidget-7edefff00a57cee5bece" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-7edefff00a57cee5bece">{"x":{"filter":"none","vertical":false,"data":[["Positiva","Negativa"],[4,1],[1,5]],"container":"<table class=\"hover\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Hombre<\/th>\n      <th>Mujer<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":-1,"ordering":false,"dom":"t","columnDefs":[{"targets":"_all","className":"dt-center"},{"orderable":false,"targets":0},{"name":" ","targets":0},{"name":"Hombre","targets":1},{"name":"Mujer","targets":2}],"initComplete":"function(settings, json) {\n$(this.api().table().node()).css({'font-size': '16px'});\n$('thead th').css('font-weight', 'normal');\n}","order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[-1,10,25,50,100]}},"evals":["options.initComplete"],"jsHooks":[]}</script>
 </div>
 </div>
 </div>
@@ -513,14 +522,14 @@ Nuestro análisis proporciona cierta evidencia de que existe alguna diferencia, 
 </section>
 
 <div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">Ejercicio 2</h2><div id="refs" class="references csl-bib-body" role="list">
+<div id="ref-corder2014" class="csl-entry" role="listitem">
+<div class="csl-left-margin">1. </div><div class="csl-right-inline">Corder GW, Foreman DI. <em>Nonparametric Statistics: A Step‑by‑Step Approach</em>. 2.ª ed. John Wiley &amp; Sons; 2014.</div>
+</div>
 <div id="ref-nowacki2017" class="csl-entry" role="listitem">
-<div class="csl-left-margin">1. </div><div class="csl-right-inline">Nowacki A. Chi‐square and Fisher’s exact tests. <em>Cleveland Clinic Journal of Medicine</em>. 2017;84(9 Suppl 2):e20-e25. doi:<a href="https://doi.org/10.3949/ccjm.84.s2.04">10.3949/ccjm.84.s2.04</a></div>
+<div class="csl-left-margin">2. </div><div class="csl-right-inline">Nowacki A. Chi‐square and Fisher’s exact tests. <em>Cleveland Clinic Journal of Medicine</em>. 2017;84(9 Suppl 2):e20-e25. doi:<a href="https://doi.org/10.3949/ccjm.84.s2.04">10.3949/ccjm.84.s2.04</a></div>
 </div>
 <div id="ref-conover1999" class="csl-entry" role="listitem">
-<div class="csl-left-margin">2. </div><div class="csl-right-inline">Conover WJ. <em>Practical Nonparametric Statistics</em>. 3.ª ed. Wiley; 1999.</div>
-</div>
-<div id="ref-corder2014" class="csl-entry" role="listitem">
-<div class="csl-left-margin">3. </div><div class="csl-right-inline">Corder GW, Foreman DI. <em>Nonparametric Statistics: A Step‑by‑Step Approach</em>. 2.ª ed. John Wiley &amp; Sons; 2014.</div>
+<div class="csl-left-margin">3. </div><div class="csl-right-inline">Conover WJ. <em>Practical Nonparametric Statistics</em>. 3.ª ed. Wiley; 1999.</div>
 </div>
 </div></section></div></main>
 <!-- /main column -->
