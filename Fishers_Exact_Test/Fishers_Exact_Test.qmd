@@ -2,8 +2,8 @@
 title: "Prueba exacta de Fisher"
 subtitle: 'De la teoría a la práctica'
 author: 
-  name: "J"
-  email: "hello@mail.com"
+  name: "Antonio Chávez"
+  email: "hello.josacc@protonmail.com"
 date: today
 bibliography: resources/referencias.bib
 csl: resources/american-medical-association.csl
@@ -35,15 +35,26 @@ alt="GitHub" style="height: 1.3em; vertical-align: middle;"/> </a>
 ## Reseña
 
 ::: {.small .justify}
-La prueba exacta de Fisher... 
-  
+La prueba exacta de Fisher es una prueba estadística utilizada frecuentemente para evaluar la 
+asociación entre dos variables categóricas en una tabla de contingencia de $2 \times 2$, 
+especialmente cuando las frecuencias esperadas son bajas y no se pueden aplicar 
+las aproximaciones de la prueba chi-cuadrada. A diferencia de la chi-cuadrada, 
+que se basa en aproximaciones, la prueba exacta de Fisher calcula exactamente la 
+probabilidad de observar una tabla de contingencia dada, bajo la hipótesis nula 
+de independencia entre las variables.  
+
+La prueba se basa en la distribución hipergeométrica y calcula un $valor\ p$ que se 
+utiliza para determinar si se puede rechazar la hipótesis nula. A diferencia de otros tests, 
+la prueba exacta de Fisher no depende de grandes muestras ni de la aproximación 
+de la distribución, lo que la hace ideal para datos con pequeñas frecuencias [@conover1999] [@lydersen2009].
 :::
 
 
 ## Teoría
 
 ::: {.justify}
-Descripción de la teoría
+El desarrollo de la teoría se basa en la sección 4.1 del texto 
+*Practical Nonparametric Statistics* [@conover1999]
 :::
 
 
@@ -51,7 +62,7 @@ Descripción de la teoría
 ### Datos
 
 ::: {.justify}
-Las $N$ observaciones se resumen en una tabla de contingencia de $2 \times 2$. 
+Se tienen $N$ observaciones resumidas en una tabla de contingencia de $2 \times 2$. 
 Los totales de fila, $r$ y $N - r$, y de columna, $c$ y $N - c$, están determinados 
 de antemano; por lo tanto, se consideran fijos.
 :::
@@ -90,11 +101,11 @@ dada por la distribución hipergeométrica:
 $$
 P(T = x) = \left\{
 \begin{array}{ll}
-\dfrac{\dbinom{r}{x} \dbinom{N - r}{c - x}}{\dbinom{N}{c}}, & \text{si } x = 0, 1, \ldots, \min(r, c) \\[8pt]
+\dfrac{\dbinom{r}{x} \dbinom{N - r}{c - x}}{\dbinom{N}{c}}, & \text{si } x = 0, 1, \ldots, \min(r,\ c) \\[8pt]
 0, & \text{en otro caso}
 \end{array}
 \right.
-\tag{3}
+\tag{1}
 $$
 </div>
 
@@ -147,7 +158,7 @@ El $\text{valor }p$ se calcula como $P(T \geq t)$ usando la Ecuación <a href="#
 ### Observación
 
 ::: {.justify}
-Como se comentó en la [reseña](#reseña), la prueba exacta de Fisher se puede usar para corroborar 
+Como se comentó, en la [reseña](#reseña), la prueba exacta de Fisher se puede usar para corroborar 
 la asociación de dos variables aleatorias discretas; para este caso se hace la siguiente 
 reformulación respecto a Filas y Columnas. Sean $F$ y $C$ variables aleatorias 
 discretas que solo pueden tomar dos valores, es decir, 
@@ -221,18 +232,13 @@ invisible(purrr::map(analysis_files, source))
 ## Práctica
 
 ::: {.justify}
-Se abordará la prática mediante la resolución de dos ejercicios con el 
+Se aborda la práctica mediante la resolución de un ejercicio con el 
 <a href="https://www.r-project.org/" target="_blank">software estadístico R</a>; 
-para una mejor experiencia se sugiere el uso del <a href="https://posit.co/download/rstudio/" target="_blank">IDE RStudio</a>.
-:::
+para una mejor experiencia se sugiere el uso del <a href="https://posit.co/download/rstudio/" target="_blank">IDE RStudio</a>.  
 
-
-##### Bibliotecas
-
-::: {.justify}
-Se deben cargar las bilbiotecas necesarias para ambos ejercicicos. En caso de no tener 
-descargado los respectivos paquetes consultar 
-<a href="https://r4ds.hadley.nz/data-visualize.html#prerequisites" target="_blank">aquí</a>
+Se deben cargar las bibliotecas necesarias. 
+En caso de no tener instalados los paquetes, consultar 
+<a href="https://r4ds.hadley.nz/data-visualize.html#prerequisites" target="_blank">aquí</a>.
 :::
 
 
@@ -242,8 +248,6 @@ descargado los respectivos paquetes consultar
 #| code-fold: show
 
 library(tidyverse)
-library(DT)
-library(broom)
 library(ggsci)
 library(ggmosaic)
   
@@ -251,44 +255,20 @@ library(ggmosaic)
 
 
 
-
-### Ejercicio 1
-
-Se toma el ejercicio de la sección 8.5.2 de *Nonparametric Statistics: A Step‑by‑Step Approach* [@corder2014], 
-notemos ...
-```{r }
-#| eval: false
-#| echo: true
-#| code-fold: show
-
-data_source_exercise_1 <- tribble(
-  ~Participante, ~Género,  ~Puntaje, ~Actitud,
-  1,             "Hombre", "+30",    "+",
-  2,             "Hombre", "+14",    "+",
-  3,             "Hombre", "-21",    "−",
-  4,             "Hombre", "+22",    "+",
-  5,             "Hombre", "+9" ,    "+",
-  6,             "Mujer",  "-22",    "−",
-  7,             "Mujer",  "-13",    "−",
-  8,             "Mujer",  "-20",    "−",
-  9,             "Mujer",  "-7" ,    "−",
-  10,            "Mujer",  "+19",    "+",
-  11,            "Mujer",  "-31",    "−"
-)
+<br>
 
 
-data_main_exercise_1 <- data_source_exercise_1 %>%
-  select(Actitud, Género) %>%
-  mutate(Actitud = str_replace_all(
-    Actitud, 
-    c("−" = "Negativa", "\\+" = "Positiva")
-  ))
-  
-```
+
+### Ejercicio
+
+::: {.justify}
+De la sección 8.5 de *Nonparametric Statistics: A Step‑by‑Step Approach* [@corder2014] 
+se toma el siguiente problema.
+:::
 
 
 ::: {.justify}
-##### Problema
+#### Problema
 Un pequeño centro médico aplicó una encuesta para determinar la actitud de 
 disposición de su personal de enfermería para atender a pacientes. La encuesta 
 consistió en una escala de Likert de 15 ítems, con dos opciones positivas, dos 
@@ -333,17 +313,60 @@ htmltools::div(
 
 
 
-##### Objetivo
+#### Objetivo
 
 ::: {.justify}
 Determinar si existe una diferencia en la actitud entre hombres y mujeres 
 respecto a su preparación para atender a los pacientes.
 :::
 
+
+<br>
+
+
+#### Abordaje del problema
+
+::: {.justify}
+Los datos objeto de análisis se presentan en el siguiente tribble:
+:::
+
+
+```{r }
+#| eval: false
+#| echo: true
+#| code-fold: show
+
+data_source_exercise_1 <- tribble(
+  ~Participante, ~Género,  ~Puntaje, ~Actitud,
+  1,             "Hombre", "+30",    "+",
+  2,             "Hombre", "+14",    "+",
+  3,             "Hombre", "-21",    "−",
+  4,             "Hombre", "+22",    "+",
+  5,             "Hombre", "+9" ,    "+",
+  6,             "Mujer",  "-22",    "−",
+  7,             "Mujer",  "-13",    "−",
+  8,             "Mujer",  "-20",    "−",
+  9,             "Mujer",  "-7" ,    "−",
+  10,            "Mujer",  "+19",    "+",
+  11,            "Mujer",  "-31",    "−"
+)
+
+
+data_main_exercise_1 <- data_source_exercise_1 %>%
+  select(Actitud, Género) %>%
+  mutate(Actitud = str_replace_all(
+    Actitud, 
+    c("−" = "Negativa", "\\+" = "Positiva")
+  ))
+  
+```
+
+
 ##### Gráfica
 
 ::: {.justify}
-Descripción de gráfico...
+El gráfico de mosaicos @fig-mosaic-exe-1 proporciona un primer análisis exploratorio y 
+una interpretación visual de la información.
 :::
 
 
@@ -386,11 +409,11 @@ plot_mosaic_exercise_1
 
 
 
-#### Planteamiento de las hipótesis nula y alternativa
+##### Planteamiento de las hipótesis nula y alternativa
 
 ::: {.justify}
 La **hipótesis nula** establece que no hay diferencias entre hombres y mujeres en la encuesta de actitud que mide las percepciones sobre el programa de enseñanza para el cuidado de pacientes.  
-La **hipótesis alternativa** plantea que la proporción de hombres con actitudes positivas, $p_{_H}$, es mayor que la proporción de mujeres con actitudes positivas, $p_{_M}$.
+La **hipótesis alternativa** plantea que la proporción de hombres con actitudes positivas, $p_{_H}$, distinta a la proporción de mujeres con actitudes positivas, $p_{_M}$.
 
 Las hipótesis se expresan de la siguiente manera:
 :::
@@ -398,7 +421,7 @@ Las hipótesis se expresan de la siguiente manera:
 $$
 \begin{aligned}
 H_0\!: &\quad p_{_H} = p_{_M} \\
-H_A\!: &\quad p_{_H} > p_{_M}
+H_A\!: &\quad p_{_H} \neq p_{_M}
 \end{aligned}
 $$
 
@@ -408,55 +431,50 @@ probabilidad de que cualquier diferencia estadística observada sea real y no
 producto del azar.
 :::
 
+
+
+```{r }
+#| eval: false
+#| echo: true
+#| code-fold: show
+
+data_main_exercise_1 %>%
+  table() %>%
+  fisher.test(alternative = "two.side")
+  
+```
+
+
+
+```{r}
+#| label: fig-fisher-exercise-1
+#| echo: false
+#| results: 'asis'
+
+output_text <- capture.output(print(test_fisher_exercise_1))
+
+htmltools::div(
+  style = "margin-left: auto; margin-right: auto; width: fit-content; white-space: pre; font-family: monospace; padding: 10px; background-color: #f5f4f4; border-radius: 5px;",
+  paste(output_text, collapse = "\n")
+)
+```
+
+
+<br>
+
+
 ::: {.justify}
 ##### Interpretación de los resultados
-No se rechazó la hipótesis nula, lo que sugiere que no existe una diferencia real 
+Con un $\text{valor }p = 0.08$, no se rechaza la hipótesis nula, lo que sugiere que no existe una diferencia real 
 entre las actitudes de hombres y mujeres respecto a su preparación para cuidar a los pacientes.  
-Sin embargo, se observó una clara tendencia hacia sentimientos positivos por parte 
-de los hombres y sentimientos negativos por parte de las mujeres.  
-La probabilidad fue baja, aunque no significativa. Este tipo de estudio justificaría 
-una investigación adicional con otras muestras para determinar si esta tendencia se manifiesta con mayor claridad.  
-Nuestro análisis proporciona cierta evidencia de que existe alguna diferencia, y 
+Sin embargo, se obtienen dos conclusiones importantes: 
+
+1. En la @fig-mosaic-exe-1  se observa una clara tendencia hacia sentimientos positivos por parte 
+de los hombres y sentimientos negativos por parte de las mujeres.
+2. La probabilidad fue baja, aunque no estadísticamente significativa. 
+
+Este tipo de estudio justificaría una investigación adicional con otras muestras para determinar si esta tendencia se manifiesta con mayor claridad.  
+El análisis proporciona cierta evidencia de que existe alguna diferencia, y 
 si se hubiera analizado con un valor crítico más liberal, como $\alpha = 0.10$, 
 esta prueba estadística habría mostrado significancia.
 :::
-
-
-
-### Ejercicio 2
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

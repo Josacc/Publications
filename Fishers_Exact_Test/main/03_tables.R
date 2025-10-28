@@ -1,4 +1,4 @@
-# Exercise 1 --------------------------------------------------------------
+# Exercise  --------------------------------------------------------------
 
 table_exercise_1 <-
   data_source_exercise_1 %>%
@@ -25,7 +25,6 @@ table_contingency_exercise_1 <-
   data_main_exercise_1 %>%
     table() %>%
     as.data.frame.matrix() %>%
-    .[c("Positiva", "Negativa"), ] %>%
     datatable(
       rownames = TRUE,
       class    = "hover",
@@ -44,26 +43,3 @@ table_contingency_exercise_1 <-
         )
       )
     )
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

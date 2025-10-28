@@ -6,7 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="J">
+<meta name="author" content="Antonio Chávez">
 
 <title>Prueba exacta de Fisher</title>
 <style>
@@ -162,8 +162,7 @@ window.Quarto = {
   </ul></li>
   <li><a href="#práctica" id="toc-práctica" class="nav-link" data-scroll-target="#práctica">Práctica</a>
   <ul class="collapse">
-  <li><a href="#ejercicio-1" id="toc-ejercicio-1" class="nav-link" data-scroll-target="#ejercicio-1">Ejercicio 1</a></li>
-  <li><a href="#ejercicio-2" id="toc-ejercicio-2" class="nav-link" data-scroll-target="#ejercicio-2">Ejercicio 2</a></li>
+  <li><a href="#ejercicio" id="toc-ejercicio" class="nav-link" data-scroll-target="#ejercicio">Ejercicio</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -185,14 +184,14 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Autor/a</div>
     <div class="quarto-title-meta-contents">
-             <p>J <a href="mailto:hello@mail.com" class="quarto-title-author-email"><i class="bi bi-envelope"></i></a> </p>
+             <p>Antonio Chávez <a href="mailto:hello.josacc@protonmail.com" class="quarto-title-author-email"><i class="bi bi-envelope"></i></a> </p>
           </div>
   </div>
     
     <div>
     <div class="quarto-title-meta-heading">Fecha de publicación</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">23 de octubre de 2025</p>
+      <p class="date">28 de octubre de 2025</p>
     </div>
   </div>
   
@@ -211,18 +210,19 @@ window.Quarto = {
 <section id="reseña" class="level2">
 <h2 class="anchored" data-anchor-id="reseña">Reseña</h2>
 <div class="small justify">
-<p>La prueba exacta de Fisher…</p>
+<p>La prueba exacta de Fisher es una prueba estadística utilizada frecuentemente para evaluar la asociación entre dos variables categóricas en una tabla de contingencia de <span class="math inline">\(2 \times 2\)</span>, especialmente cuando las frecuencias esperadas son bajas y no se pueden aplicar las aproximaciones de la prueba chi-cuadrada. A diferencia de la chi-cuadrada, que se basa en aproximaciones, la prueba exacta de Fisher calcula exactamente la probabilidad de observar una tabla de contingencia dada, bajo la hipótesis nula de independencia entre las variables.</p>
+<p>La prueba se basa en la distribución hipergeométrica y calcula un <span class="math inline">\(valor\ p\)</span> que se utiliza para determinar si se puede rechazar la hipótesis nula. A diferencia de otros tests, la prueba exacta de Fisher no depende de grandes muestras ni de la aproximación de la distribución, lo que la hace ideal para datos con pequeñas frecuencias<span class="citation" data-cites="conover1999"><sup><a href="#ref-conover1999" role="doc-biblioref">1</a></sup></span> <span class="citation" data-cites="lydersen2009"><sup><a href="#ref-lydersen2009" role="doc-biblioref">2</a></sup></span>.</p>
 </div>
 </section>
 <section id="teoría" class="level2">
 <h2 class="anchored" data-anchor-id="teoría">Teoría</h2>
 <div class="justify">
-<p>Descripción de la teoría</p>
+<p>El desarrollo de la teoría se basa en la sección 4.1 del texto <em>Practical Nonparametric Statistics</em><span class="citation" data-cites="conover1999"><sup><a href="#ref-conover1999" role="doc-biblioref">1</a></sup></span></p>
 </div>
 <section id="datos" class="level3">
 <h3 class="anchored" data-anchor-id="datos">Datos</h3>
 <div class="justify">
-<p>Las <span class="math inline">\(N\)</span> observaciones se resumen en una tabla de contingencia de <span class="math inline">\(2 \times 2\)</span>. Los totales de fila, <span class="math inline">\(r\)</span> y <span class="math inline">\(N - r\)</span>, y de columna, <span class="math inline">\(c\)</span> y <span class="math inline">\(N - c\)</span>, están determinados de antemano; por lo tanto, se consideran fijos.</p>
+<p>Se tienen <span class="math inline">\(N\)</span> observaciones resumidas en una tabla de contingencia de <span class="math inline">\(2 \times 2\)</span>. Los totales de fila, <span class="math inline">\(r\)</span> y <span class="math inline">\(N - r\)</span>, y de columna, <span class="math inline">\(c\)</span> y <span class="math inline">\(N - c\)</span>, están determinados de antemano; por lo tanto, se consideran fijos.</p>
 </div>
 <p><span class="math display">\[
 \begin{array}{c|cc|c}
@@ -254,11 +254,11 @@ window.Quarto = {
 <p><span class="math display">\[
 P(T = x) = \left\{
 \begin{array}{ll}
-\dfrac{\dbinom{r}{x} \dbinom{N - r}{c - x}}{\dbinom{N}{c}}, &amp; \text{si } x = 0, 1, \ldots, \min(r, c) \\[8pt]
+\dfrac{\dbinom{r}{x} \dbinom{N - r}{c - x}}{\dbinom{N}{c}}, &amp; \text{si } x = 0, 1, \ldots, \min(r,\ c) \\[8pt]
 0, &amp; \text{en otro caso}
 \end{array}
 \right.
-\tag{3}
+\tag{1}
 \]</span></p>
 </div>
 </section>
@@ -312,7 +312,7 @@ H_1\!: &amp;\quad p_1 &gt; p_2
 <section id="observación" class="level3">
 <h3 class="anchored" data-anchor-id="observación">Observación</h3>
 <div class="justify">
-<p>Como se comentó en la <a href="#reseña">reseña</a>, la prueba exacta de Fisher se puede usar para corroborar la asociación de dos variables aleatorias discretas; para este caso se hace la siguiente reformulación respecto a Filas y Columnas. Sean <span class="math inline">\(F\)</span> y <span class="math inline">\(C\)</span> variables aleatorias discretas que solo pueden tomar dos valores, es decir,</p>
+<p>Como se comentó, en la <a href="#reseña">reseña</a>, la prueba exacta de Fisher se puede usar para corroborar la asociación de dos variables aleatorias discretas; para este caso se hace la siguiente reformulación respecto a Filas y Columnas. Sean <span class="math inline">\(F\)</span> y <span class="math inline">\(C\)</span> variables aleatorias discretas que solo pueden tomar dos valores, es decir,</p>
 </div>
 <div id="eq-images" class="equation">
 <p><span class="math display">\[
@@ -354,27 +354,75 @@ H_1\!: &amp;\quad F \; \text{y} \; C \; \text {no son independientes}
 <section id="práctica" class="level2">
 <h2 class="anchored" data-anchor-id="práctica">Práctica</h2>
 <div class="justify">
-<p>Se abordará la prática mediante la resolución de dos ejercicios con el <a href="https://www.r-project.org/" target="_blank">software estadístico R</a>; para una mejor experiencia se sugiere el uso del <a href="https://posit.co/download/rstudio/" target="_blank">IDE RStudio</a>.</p>
-</div>
-<section id="bibliotecas" class="level5">
-<h5 class="anchored" data-anchor-id="bibliotecas">Bibliotecas</h5>
-<div class="justify">
-<p>Se deben cargar las bilbiotecas necesarias para ambos ejercicicos. En caso de no tener descargado los respectivos paquetes consultar <a href="https://r4ds.hadley.nz/data-visualize.html#prerequisites" target="_blank">aquí</a></p>
+<p>Se aborda la práctica mediante la resolución de un ejercicio con el <a href="https://www.r-project.org/" target="_blank">software estadístico R</a>; para una mejor experiencia se sugiere el uso del <a href="https://posit.co/download/rstudio/" target="_blank">IDE RStudio</a>.</p>
+<p>Se deben cargar las bibliotecas necesarias. En caso de no tener instalados los paquetes, consultar <a href="https://r4ds.hadley.nz/data-visualize.html#prerequisites" target="_blank">aquí</a>.</p>
 </div>
 <div class="cell">
 <details open="" class="code-fold">
 <summary>Código</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(DT)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(broom)</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggsci)</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggmosaic)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggsci)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggmosaic)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
+<p><br></p>
+<section id="ejercicio" class="level3">
+<h3 class="anchored" data-anchor-id="ejercicio">Ejercicio</h3>
+<div class="justify">
+<p>De la sección 8.5 de <em>Nonparametric Statistics: A Step‑by‑Step Approach</em><span class="citation" data-cites="corder2014"><sup><a href="#ref-corder2014" role="doc-biblioref">3</a></sup></span> se toma el siguiente problema.</p>
+</div>
+<section id="problema" class="level4 justify">
+<h4 class="anchored" data-anchor-id="problema">Problema</h4>
+<p>Un pequeño centro médico aplicó una encuesta para determinar la actitud de disposición de su personal de enfermería para atender a pacientes. La encuesta consistió en una escala de Likert de 15 ítems, con dos opciones positivas, dos negativas y una opción neutral. El estudio se realizó con el propósito de comparar las percepciones entre hombres y mujeres.<br>
+Cada persona fue clasificada de acuerdo con una actitud total, determinada por la suma de los valores asignados a cada ítem de la encuesta. La actitud máxima positiva era de +33, y la actitud máxima negativa de −33.</p>
+<p>Las Tablas <a href="#tbl-table-ex-1" class="quarto-xref">Tabla&nbsp;1</a> y <a href="#tbl-contingency-ex-1" class="quarto-xref">Tabla&nbsp;2</a> muestran el número de hombres y mujeres que presentaron actitudes positivas o negativas respecto a su preparación. Participaron cinco hombres y seis mujeres. Cuatro de los hombres obtuvieron resultados positivos en la encuesta, mientras que solo una de las mujeres tuvo un resultado positivo.</p>
 </section>
-<section id="ejercicio-1" class="level3">
-<h3 class="anchored" data-anchor-id="ejercicio-1">Ejercicio 1</h3>
-<p>Se toma el ejercicio de la sección 8.5.2 de <em>Nonparametric Statistics: A Step‑by‑Step Approach</em><span class="citation" data-cites="corder2014"><sup><a href="#ref-corder2014" role="doc-biblioref">1</a></sup></span>, notemos …</p>
+<div class="cell">
+<div id="tbl-table-ex-1" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-table-ex-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Tabla&nbsp;1: Datos recabados del estudio.
+</figcaption>
+<div aria-describedby="tbl-table-ex-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<div style="margin-left: auto; margin-right: auto; width: fit-content;">
+<div class="datatables html-widget html-fill-item" id="htmlwidget-0476c989bb43fcc7f156" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-0476c989bb43fcc7f156">{"x":{"filter":"none","vertical":false,"data":[[1,2,3,4,5,6,7,8,9,10,11],["Hombre","Hombre","Hombre","Hombre","Hombre","Mujer","Mujer","Mujer","Mujer","Mujer","Mujer"],["+30","+14","-21","+22","+9","-22","-13","-20","-7","+19","-31"],["+","+","−","+","+","−","−","−","−","+","−"]],"container":"<table class=\"compact stripe cell-border hover row-border\">\n  <thead>\n    <tr>\n      <th>Participante<\/th>\n      <th>Género<\/th>\n      <th>Puntaje<\/th>\n      <th>Actitud<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"ordering":false,"dom":"t","columnDefs":[{"targets":"_all","className":"dt-left"},{"name":"Participante","targets":0},{"name":"Género","targets":1},{"name":"Puntaje","targets":2},{"name":"Actitud","targets":3}],"initComplete":"function(settings, json) {\n$(this.api().table().node()).css({'font-size': '14px'});\n}","order":[],"autoWidth":false,"orderClasses":false}},"evals":["options.initComplete"],"jsHooks":[]}</script>
+</div>
+</div>
+</div>
+</figure>
+</div>
+</div>
+<div class="cell">
+<div id="tbl-contingency-ex-1" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-contingency-ex-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Tabla&nbsp;2: Tabla de contingencia.
+</figcaption>
+<div aria-describedby="tbl-contingency-ex-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<div style="margin-left: auto; margin-right: auto; width: fit-content;">
+<div class="datatables html-widget html-fill-item" id="htmlwidget-1dbb3724823f518b3252" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-1dbb3724823f518b3252">{"x":{"filter":"none","vertical":false,"data":[["Negativa","Positiva"],[1,4],[5,1]],"container":"<table class=\"hover\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Hombre<\/th>\n      <th>Mujer<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":-1,"ordering":false,"dom":"t","columnDefs":[{"targets":"_all","className":"dt-center"},{"orderable":false,"targets":0},{"name":" ","targets":0},{"name":"Hombre","targets":1},{"name":"Mujer","targets":2}],"initComplete":"function(settings, json) {\n$(this.api().table().node()).css({'font-size': '16px'});\n$('thead th').css('font-weight', 'normal');\n}","order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[-1,10,25,50,100]}},"evals":["options.initComplete"],"jsHooks":[]}</script>
+</div>
+</div>
+</div>
+</figure>
+</div>
+</div>
+<section id="objetivo" class="level4">
+<h4 class="anchored" data-anchor-id="objetivo">Objetivo</h4>
+<div class="justify">
+<p>Determinar si existe una diferencia en la actitud entre hombres y mujeres respecto a su preparación para atender a los pacientes.</p>
+</div>
+<p><br></p>
+</section>
+<section id="abordaje-del-problema" class="level4">
+<h4 class="anchored" data-anchor-id="abordaje-del-problema">Abordaje del problema</h4>
+<div class="justify">
+<p>Los datos objeto de análisis se presentan en el siguiente tribble:</p>
+</div>
 <div class="cell">
 <details open="" class="code-fold">
 <summary>Código</summary>
@@ -402,56 +450,10 @@ H_1\!: &amp;\quad F \; \text{y} \; C \; \text {no son independientes}
 <span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>  ))</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<section id="problema" class="level5 justify">
-<h5 class="anchored" data-anchor-id="problema">Problema</h5>
-<p>Un pequeño centro médico aplicó una encuesta para determinar la actitud de disposición de su personal de enfermería para atender a pacientes. La encuesta consistió en una escala de Likert de 15 ítems, con dos opciones positivas, dos negativas y una opción neutral. El estudio se realizó con el propósito de comparar las percepciones entre hombres y mujeres.<br>
-Cada persona fue clasificada de acuerdo con una actitud total, determinada por la suma de los valores asignados a cada ítem de la encuesta. La actitud máxima positiva era de +33, y la actitud máxima negativa de −33.</p>
-<p>Las Tablas <a href="#tbl-table-ex-1" class="quarto-xref">Tabla&nbsp;1</a> y <a href="#tbl-contingency-ex-1" class="quarto-xref">Tabla&nbsp;2</a> muestran el número de hombres y mujeres que presentaron actitudes positivas o negativas respecto a su preparación. Participaron cinco hombres y seis mujeres. Cuatro de los hombres obtuvieron resultados positivos en la encuesta, mientras que solo una de las mujeres tuvo un resultado positivo.</p>
-</section>
-<div class="cell">
-<div id="tbl-table-ex-1" class="cell quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-tbl figure">
-<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-table-ex-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Tabla&nbsp;1: Datos recabados del estudio.
-</figcaption>
-<div aria-describedby="tbl-table-ex-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="cell-output-display">
-<div style="margin-left: auto; margin-right: auto; width: fit-content;">
-<div class="datatables html-widget html-fill-item" id="htmlwidget-ce30bb498806f48a0ca0" style="width:100%;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-ce30bb498806f48a0ca0">{"x":{"filter":"none","vertical":false,"data":[[1,2,3,4,5,6,7,8,9,10,11],["Hombre","Hombre","Hombre","Hombre","Hombre","Mujer","Mujer","Mujer","Mujer","Mujer","Mujer"],["+30","+14","-21","+22","+9","-22","-13","-20","-7","+19","-31"],["+","+","−","+","+","−","−","−","−","+","−"]],"container":"<table class=\"compact stripe cell-border hover row-border\">\n  <thead>\n    <tr>\n      <th>Participante<\/th>\n      <th>Género<\/th>\n      <th>Puntaje<\/th>\n      <th>Actitud<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"ordering":false,"dom":"t","columnDefs":[{"targets":"_all","className":"dt-left"},{"name":"Participante","targets":0},{"name":"Género","targets":1},{"name":"Puntaje","targets":2},{"name":"Actitud","targets":3}],"initComplete":"function(settings, json) {\n$(this.api().table().node()).css({'font-size': '14px'});\n}","order":[],"autoWidth":false,"orderClasses":false}},"evals":["options.initComplete"],"jsHooks":[]}</script>
-</div>
-</div>
-</div>
-</figure>
-</div>
-</div>
-<div class="cell">
-<div id="tbl-contingency-ex-1" class="cell quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-tbl figure">
-<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-contingency-ex-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Tabla&nbsp;2: Tabla de contingencia.
-</figcaption>
-<div aria-describedby="tbl-contingency-ex-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="cell-output-display">
-<div style="margin-left: auto; margin-right: auto; width: fit-content;">
-<div class="datatables html-widget html-fill-item" id="htmlwidget-7edefff00a57cee5bece" style="width:100%;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-7edefff00a57cee5bece">{"x":{"filter":"none","vertical":false,"data":[["Positiva","Negativa"],[4,1],[1,5]],"container":"<table class=\"hover\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Hombre<\/th>\n      <th>Mujer<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":-1,"ordering":false,"dom":"t","columnDefs":[{"targets":"_all","className":"dt-center"},{"orderable":false,"targets":0},{"name":" ","targets":0},{"name":"Hombre","targets":1},{"name":"Mujer","targets":2}],"initComplete":"function(settings, json) {\n$(this.api().table().node()).css({'font-size': '16px'});\n$('thead th').css('font-weight', 'normal');\n}","order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[-1,10,25,50,100]}},"evals":["options.initComplete"],"jsHooks":[]}</script>
-</div>
-</div>
-</div>
-</figure>
-</div>
-</div>
-<section id="objetivo" class="level5">
-<h5 class="anchored" data-anchor-id="objetivo">Objetivo</h5>
-<div class="justify">
-<p>Determinar si existe una diferencia en la actitud entre hombres y mujeres respecto a su preparación para atender a los pacientes.</p>
-</div>
-</section>
 <section id="gráfica" class="level5">
 <h5 class="anchored" data-anchor-id="gráfica">Gráfica</h5>
 <div class="justify">
-<p>Descripción de gráfico…</p>
+<p>El gráfico de mosaicos <a href="#fig-mosaic-exe-1" class="quarto-xref">Figura&nbsp;1</a> proporciona un primer análisis exploratorio y una interpretación visual de la información.</p>
 </div>
 <div class="cell">
 <details open="" class="code-fold">
@@ -490,46 +492,72 @@ Figura&nbsp;1: Frecuencia combinada de Género y Actitud.
 </div>
 </div>
 </section>
-<section id="planteamiento-de-las-hipótesis-nula-y-alternativa" class="level4">
-<h4 class="anchored" data-anchor-id="planteamiento-de-las-hipótesis-nula-y-alternativa">Planteamiento de las hipótesis nula y alternativa</h4>
+<section id="planteamiento-de-las-hipótesis-nula-y-alternativa" class="level5">
+<h5 class="anchored" data-anchor-id="planteamiento-de-las-hipótesis-nula-y-alternativa">Planteamiento de las hipótesis nula y alternativa</h5>
 <div class="justify">
 <p>La <strong>hipótesis nula</strong> establece que no hay diferencias entre hombres y mujeres en la encuesta de actitud que mide las percepciones sobre el programa de enseñanza para el cuidado de pacientes.<br>
-La <strong>hipótesis alternativa</strong> plantea que la proporción de hombres con actitudes positivas, <span class="math inline">\(p_{_H}\)</span>, es mayor que la proporción de mujeres con actitudes positivas, <span class="math inline">\(p_{_M}\)</span>.</p>
+La <strong>hipótesis alternativa</strong> plantea que la proporción de hombres con actitudes positivas, <span class="math inline">\(p_{_H}\)</span>, distinta a la proporción de mujeres con actitudes positivas, <span class="math inline">\(p_{_M}\)</span>.</p>
 <p>Las hipótesis se expresan de la siguiente manera:</p>
 </div>
 <p><span class="math display">\[
 \begin{aligned}
 H_0\!: &amp;\quad p_{_H} = p_{_M} \\
-H_A\!: &amp;\quad p_{_H} &gt; p_{_M}
+H_A\!: &amp;\quad p_{_H} \neq p_{_M}
 \end{aligned}
 \]</span></p>
 <div class="justify">
 <p>En este ejemplo se usará <span class="math inline">\(\alpha = 0.05\)</span>, en otras palabras, existe un 95% de probabilidad de que cualquier diferencia estadística observada sea real y no producto del azar.</p>
 </div>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>data_main_exercise_1 <span class="sc">%&gt;%</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">table</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fisher.test</span>(<span class="at">alternative =</span> <span class="st">"two.side"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div style="margin-left: auto; margin-right: auto; width: fit-content; white-space: pre; font-family: monospace; padding: 10px; background-color: #f5f4f4; border-radius: 5px;">
+    Fisher's Exact Test for Count Data
+
+data:  .
+p-value = 0.08009
+alternative hypothesis: true odds ratio is not equal to 1
+95 percent confidence interval:
+ 0.0008617814 1.6630360702
+sample estimates:
+odds ratio 
+0.07433475 
+</div>
+<p><br></p>
+</section>
 <section id="interpretación-de-los-resultados" class="level5 justify">
 <h5 class="anchored" data-anchor-id="interpretación-de-los-resultados">Interpretación de los resultados</h5>
-<p>No se rechazó la hipótesis nula, lo que sugiere que no existe una diferencia real entre las actitudes de hombres y mujeres respecto a su preparación para cuidar a los pacientes.<br>
-Sin embargo, se observó una clara tendencia hacia sentimientos positivos por parte de los hombres y sentimientos negativos por parte de las mujeres.<br>
-La probabilidad fue baja, aunque no significativa. Este tipo de estudio justificaría una investigación adicional con otras muestras para determinar si esta tendencia se manifiesta con mayor claridad.<br>
-Nuestro análisis proporciona cierta evidencia de que existe alguna diferencia, y si se hubiera analizado con un valor crítico más liberal, como <span class="math inline">\(\alpha = 0.10\)</span>, esta prueba estadística habría mostrado significancia.</p>
-</section>
-</section>
-</section>
-<section id="ejercicio-2" class="level3 unnumbered">
-
-
-</section>
+<p>Con un <span class="math inline">\(\text{valor }p = 0.08\)</span>, no se rechaza la hipótesis nula, lo que sugiere que no existe una diferencia real entre las actitudes de hombres y mujeres respecto a su preparación para cuidar a los pacientes.<br>
+Sin embargo, se obtienen dos conclusiones importantes:</p>
+<ol type="1">
+<li>En la <a href="#fig-mosaic-exe-1" class="quarto-xref">Figura&nbsp;1</a> se observa una clara tendencia hacia sentimientos positivos por parte de los hombres y sentimientos negativos por parte de las mujeres.</li>
+<li>La probabilidad fue baja, aunque no estadísticamente significativa.</li>
+</ol>
+<p>Este tipo de estudio justificaría una investigación adicional con otras muestras para determinar si esta tendencia se manifiesta con mayor claridad.<br>
+El análisis proporciona cierta evidencia de que existe alguna diferencia, y si se hubiera analizado con un valor crítico más liberal, como <span class="math inline">\(\alpha = 0.10\)</span>, esta prueba estadística habría mostrado significancia.</p>
 </section>
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">Ejercicio 2</h2><div id="refs" class="references csl-bib-body" role="list">
+</section>
+</section>
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">Referencias</h2><div id="refs" class="references csl-bib-body" role="list">
+<div id="ref-conover1999" class="csl-entry" role="listitem">
+<div class="csl-left-margin">1. </div><div class="csl-right-inline">Conover WJ. <em>Practical Nonparametric Statistics</em>. 3.ª ed. Wiley; 1999.</div>
+</div>
+<div id="ref-lydersen2009" class="csl-entry" role="listitem">
+<div class="csl-left-margin">2. </div><div class="csl-right-inline">Lydersen F S. Recommended tests for association in 2 × 2 tables. <em>Statistics in Medicine</em>. 2009;28(7):1159-1175. doi:<a href="https://doi.org/10.1002/sim.3531">10.1002/sim.3531</a></div>
+</div>
 <div id="ref-corder2014" class="csl-entry" role="listitem">
-<div class="csl-left-margin">1. </div><div class="csl-right-inline">Corder GW, Foreman DI. <em>Nonparametric Statistics: A Step‑by‑Step Approach</em>. 2.ª ed. John Wiley &amp; Sons; 2014.</div>
+<div class="csl-left-margin">3. </div><div class="csl-right-inline">Corder GW, Foreman DI. <em>Nonparametric Statistics: A Step‑by‑Step Approach</em>. 2.ª ed. John Wiley &amp; Sons; 2014.</div>
 </div>
 <div id="ref-nowacki2017" class="csl-entry" role="listitem">
-<div class="csl-left-margin">2. </div><div class="csl-right-inline">Nowacki A. Chi‐square and Fisher’s exact tests. <em>Cleveland Clinic Journal of Medicine</em>. 2017;84(9 Suppl 2):e20-e25. doi:<a href="https://doi.org/10.3949/ccjm.84.s2.04">10.3949/ccjm.84.s2.04</a></div>
-</div>
-<div id="ref-conover1999" class="csl-entry" role="listitem">
-<div class="csl-left-margin">3. </div><div class="csl-right-inline">Conover WJ. <em>Practical Nonparametric Statistics</em>. 3.ª ed. Wiley; 1999.</div>
+<div class="csl-left-margin">4. </div><div class="csl-right-inline">Nowacki A. Chi‐square and Fisher’s exact tests. <em>Cleveland Clinic Journal of Medicine</em>. 2017;84(9 Suppl 2):e20-e25. doi:<a href="https://doi.org/10.3949/ccjm.84.s2.04">10.3949/ccjm.84.s2.04</a></div>
 </div>
 </div></section></div></main>
 <!-- /main column -->
